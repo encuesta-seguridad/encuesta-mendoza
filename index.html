@@ -228,7 +228,7 @@
           if (payload[key]) { if (!Array.isArray(payload[key])) payload[key] = [payload[key]]; payload[key].push(value); }
           else { payload[key] = value; }
         }
-        const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbzFsn9IN84YjhZYrBxNbJ06e_fhXbBJJoH-l7-raN-xsuzJLiohXWmqbZ_P32c7jJoH/exec';
+        const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbySQN1Qi_j9s5P5B2_pjxncr04Tz-iMqgD6VQU6UcCo8GNnGKkhUDiKiSs3GMScR9fW/exec';
         fetch(SCRIPT_URL, { method: 'POST', mode: 'no-cors', headers: { 'Content-Type': 'application/x-www-form-urlencoded' }, body: new URLSearchParams(payload) })
         .then(() => { statusDiv.innerHTML = '<div class="message success">✅ Respuestas enviadas. ¡Muchas gracias!</div>'; document.getElementById('submitBtn').disabled = true; })
         .catch(err => { console.error(err); statusDiv.innerHTML = '<div class="message error">❌ Error al enviar. Intente nuevamente.</div>'; });
