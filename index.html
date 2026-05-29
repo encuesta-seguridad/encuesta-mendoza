@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="es">
 <head>
   <meta charset="UTF-8">
@@ -77,9 +77,10 @@
       <div class="subtitle">Mendoza · Respuestas anónimas</div>
     </div>
     <div class="progress-bar"><div class="progress-fill" id="progressFill"></div></div>
-    <form id="mainForm" novalidate>
+    <form id="mainForm" novalidate action="https://script.google.com/macros/s/AKfycbzFsn9IN84YjhZYrBxNbJ06e_fhXbBJJoH-l7-raN-xsuzJLiohXWmqbZ_P32c7jJoH/exec" method="POST" target="hidden_iframe">
       <div class="step-container" id="stepContainer"></div>
     </form>
+    <iframe name="hidden_iframe" style="display:none;"></iframe>
   </div>
 
   <script>
@@ -178,7 +179,7 @@
       function renderStep(index) {
         if (index >= activeSequence.length) {
           stepContainer.innerHTML = `<div class="step active"><div class="step-question" style="text-align:center;">Gracias por completar la encuesta.</div><button id="submitBtn" type="button">Enviar respuestas</button><div id="formStatus"></div></div>`;
-          document.getElementById('submitBtn').addEventListener('click', submitForm);
+          document.getElementById('submitBtn').addEventListener('click', () => { form.submit(); document.getElementById('formStatus').innerHTML = '<div class="message success">✅ Respuestas enviadas. ¡Muchas gracias!</div>'; document.getElementById('submitBtn').disabled = true; });
           progressFill.style.width = '100%';
           return;
         }
@@ -217,21 +218,6 @@
         const total = activeSequence.length || 1;
         const percent = Math.round((currentStepIndex / total) * 100);
         progressFill.style.width = percent + '%';
-      }
-
-      function submitForm() {
-        const statusDiv = document.getElementById('formStatus');
-        statusDiv.innerHTML = '<div class="message success">Enviando...</div>';
-        const formData = new FormData(form);
-        const payload = {};
-        for (let [key, value] of formData.entries()) {
-          if (payload[key]) { if (!Array.isArray(payload[key])) payload[key] = [payload[key]]; payload[key].push(value); }
-          else { payload[key] = value; }
-        }
-        const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbySQN1Qi_j9s5P5B2_pjxncr04Tz-iMqgD6VQU6UcCo8GNnGKkhUDiKiSs3GMScR9fW/exec';
-        fetch(SCRIPT_URL, { method: 'POST', mode: 'no-cors', headers: { 'Content-Type': 'application/x-www-form-urlencoded' }, body: new URLSearchParams(payload) })
-        .then(() => { statusDiv.innerHTML = '<div class="message success">✅ Respuestas enviadas. ¡Muchas gracias!</div>'; document.getElementById('submitBtn').disabled = true; })
-        .catch(err => { console.error(err); statusDiv.innerHTML = '<div class="message error">❌ Error al enviar. Intente nuevamente.</div>'; });
       }
 
       resolveActiveSequence();
