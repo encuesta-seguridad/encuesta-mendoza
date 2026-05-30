@@ -6,18 +6,9 @@
   <title>Encuesta Victimológica y de Seguridad Ciudadana · Mendoza</title>
   <style>
     * { box-sizing: border-box; margin: 0; padding: 0; }
-    body {
-      font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
-      background: #eef2f6; display: flex; justify-content: center; align-items: flex-start;
-      min-height: 100vh; padding: 20px 12px 40px; color: #1e293b;
-    }
-    .survey-container {
-      width: 100%; max-width: 600px; background: #ffffff; border-radius: 28px;
-      box-shadow: 0 12px 30px rgba(0,0,0,0.08); overflow: hidden;
-    }
-    .survey-header {
-      padding: 24px 24px 12px; text-align: center; border-bottom: 1px solid #e9edf2;
-    }
+    body { font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif; background: #eef2f6; display: flex; justify-content: center; align-items: flex-start; min-height: 100vh; padding: 20px 12px 40px; color: #1e293b; }
+    .survey-container { width: 100%; max-width: 600px; background: #ffffff; border-radius: 28px; box-shadow: 0 12px 30px rgba(0,0,0,0.08); overflow: hidden; }
+    .survey-header { padding: 24px 24px 12px; text-align: center; border-bottom: 1px solid #e9edf2; }
     .survey-header h1 { font-size: 1.7rem; font-weight: 700; color: #0f3b5c; }
     .survey-header .subtitle { font-size: 0.9rem; color: #5e6f82; margin-top: 6px; font-weight: 500; }
     .progress-bar { height: 4px; background: #e2e8f0; width: 100%; }
@@ -25,26 +16,15 @@
     .step-container { padding: 24px 24px 32px; min-height: 360px; }
     .step { display: none; flex-direction: column; gap: 20px; animation: fadeSlide 0.3s ease; }
     .step.active { display: flex; }
-    @keyframes fadeSlide {
-      0% { opacity: 0; transform: translateY(8px); }
-      100% { opacity: 1; transform: translateY(0); }
-    }
+    @keyframes fadeSlide { 0% { opacity: 0; transform: translateY(8px); } 100% { opacity: 1; transform: translateY(0); } }
     .step-label { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.6px; color: #64748b; font-weight: 600; margin-bottom: 4px; }
     .step-question { font-size: 1.2rem; font-weight: 600; color: #0f2b40; line-height: 1.4; margin-bottom: 8px; }
     .option-group { display: flex; flex-direction: column; gap: 12px; }
     .card-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 12px; }
     .card-option { position: relative; }
     .card-option input { position: absolute; opacity: 0; pointer-events: none; }
-    .card-option label {
-      display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 8px;
-      padding: 16px 8px; background: #f8fafd; border: 2px solid #e2e8f0; border-radius: 20px;
-      text-align: center; font-weight: 500; color: #334155; cursor: pointer; transition: all 0.2s;
-      min-height: 90px; font-size: 0.9rem; user-select: none;
-    }
-    .card-option input:checked+label {
-      border-color: #1e5a7b; background: #e5f0f8; color: #0a3144;
-      box-shadow: 0 4px 12px rgba(30,90,123,0.15); font-weight: 600;
-    }
+    .card-option label { display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 8px; padding: 16px 8px; background: #f8fafd; border: 2px solid #e2e8f0; border-radius: 20px; text-align: center; font-weight: 500; color: #334155; cursor: pointer; transition: all 0.2s; min-height: 90px; font-size: 0.9rem; user-select: none; }
+    .card-option input:checked+label { border-color: #1e5a7b; background: #e5f0f8; color: #0a3144; box-shadow: 0 4px 12px rgba(30,90,123,0.15); font-weight: 600; }
     .card-icon { font-size: 1.8rem; opacity: 0.8; }
     .slider-group { display: flex; flex-direction: column; gap: 8px; }
     .slider-labels { display: flex; justify-content: space-between; font-size: 0.85rem; color: #475569; font-weight: 500; }
@@ -77,13 +57,14 @@
       <div class="subtitle">Mendoza · Respuestas anónimas</div>
     </div>
     <div class="progress-bar"><div class="progress-fill" id="progressFill"></div></div>
-    <form id="mainForm" novalidate action="https://script.google.com/macros/s/AKfycbzFsn9IN84YjhZYrBxNbJ06e_fhXbBJJoH-l7-raN-xsuzJLiohXWmqbZ_P32c7jJoH/exec" method="POST" target="hidden_iframe">
+    <form id="mainForm" novalidate>
       <div class="step-container" id="stepContainer"></div>
     </form>
-    <iframe name="hidden_iframe" style="display:none;"></iframe>
   </div>
 
   <script>
+    const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbze488PmtveHxfb50sdVp7kNIKTdSUC2C5W0QbA3lcGS5WosTq2UXeEnc_LacbOBakk/exec';
+    
     (function() {
       const steps = [
         { id: 'consent', html: `<div class="step-label">Confidencialidad</div><div class="step-question">¿Acepta participar voluntariamente en esta encuesta anónima?</div><div class="option-group"><div class="radio-row"><input type="radio" name="consentimiento" id="consent_si" value="Si" required><label for="consent_si">Sí, acepto participar</label></div><div class="radio-row"><input type="radio" name="consentimiento" id="consent_no" value="No"><label for="consent_no">No, prefiero no participar</label></div></div>` },
@@ -143,18 +124,12 @@
       const stepContainer = document.getElementById('stepContainer');
       const progressFill = document.getElementById('progressFill');
 
-      function buildFlatSequence() {
-        return steps.map(step => ({ ...step, _conditional: step.condition ? true : false }));
-      }
-
+      function buildFlatSequence() { return steps.map(step => ({ ...step, _conditional: step.condition ? true : false })); }
       const flatSequence = buildFlatSequence();
       let activeSequence = [];
 
-      function isNingunoSelected() {
-        const checks = document.querySelectorAll('input[name="delitos"]:checked');
-        for (let c of checks) { if (c.value === 'Ninguno') return true; }
-        return false;
-      }
+      function isNingunoSelected() { const checks = document.querySelectorAll('input[name="delitos"]:checked'); for (let c of checks) { if (c.value === 'Ninguno') return true; } return false; }
+      function getRadioValue(name) { const el = document.querySelector(`input[name="${name}"]:checked`); return el ? el.value : null; }
 
       function resolveActiveSequence() {
         const denuncioValue = getRadioValue('denuncio');
@@ -165,66 +140,44 @@
           if (step._conditional) {
             if (step.condition === 'denuncio_si' && denuncioValue === 'Si') activeSequence.push(step);
             else if (step.condition === 'denuncio_no' && denuncioValue === 'No') activeSequence.push(step);
-          } else {
-            activeSequence.push(step);
-          }
+          } else { activeSequence.push(step); }
         }
-      }
-
-      function getRadioValue(name) {
-        const el = document.querySelector(`input[name="${name}"]:checked`);
-        return el ? el.value : null;
       }
 
       function renderStep(index) {
         if (index >= activeSequence.length) {
           stepContainer.innerHTML = `<div class="step active"><div class="step-question" style="text-align:center;">Gracias por completar la encuesta.</div><button id="submitBtn" type="button">Enviar respuestas</button><div id="formStatus"></div></div>`;
-          document.getElementById('submitBtn').addEventListener('click', () => { form.submit(); document.getElementById('formStatus').innerHTML = '<div class="message success">✅ Respuestas enviadas. ¡Muchas gracias!</div>'; document.getElementById('submitBtn').disabled = true; });
-          progressFill.style.width = '100%';
-          return;
+          document.getElementById('submitBtn').addEventListener('click', () => {
+            const statusDiv = document.getElementById('formStatus');
+            statusDiv.innerHTML = '<div class="message success">Enviando...</div>';
+            const formData = new FormData(form);
+            const payload = {};
+            for (let [key, value] of formData.entries()) {
+              if (payload[key]) { if (!Array.isArray(payload[key])) payload[key] = [payload[key]]; payload[key].push(value); }
+              else { payload[key] = value; }
+            }
+            fetch(SCRIPT_URL, { method: 'POST', mode: 'no-cors', headers: { 'Content-Type': 'application/x-www-form-urlencoded' }, body: new URLSearchParams(payload) })
+            .then(() => { statusDiv.innerHTML = '<div class="message success">✅ Respuestas enviadas. ¡Muchas gracias!</div>'; document.getElementById('submitBtn').disabled = true; })
+            .catch(err => { statusDiv.innerHTML = '<div class="message error">❌ Error al enviar. Intente nuevamente.</div>'; });
+          });
+          progressFill.style.width = '100%'; return;
         }
         const stepData = activeSequence[index];
         stepContainer.innerHTML = `<div class="step active">${stepData.html}<div class="nav-buttons">${index > 0 ? '<button class="secondary" id="prevBtn">Anterior</button>' : ''}<button id="nextBtn">${index === activeSequence.length - 1 ? 'Finalizar' : 'Siguiente'}</button></div></div>`;
         document.getElementById('nextBtn').addEventListener('click', () => {
-          if (stepData.id === 'consent') {
-            const checked = document.querySelector('input[name="consentimiento"]:checked');
-            if (!checked || checked.value !== 'Si') { alert('Debe aceptar participar para continuar.'); return; }
-          }
-          if (stepData.id === 'victimizacion' || stepData.id === 'denuncio') {
-            resolveActiveSequence();
-            const newIndex = activeSequence.findIndex(s => s.id === stepData.id);
-            if (newIndex !== -1) currentStepIndex = newIndex;
-          }
+          if (stepData.id === 'consent' && (!document.querySelector('input[name="consentimiento"]:checked') || document.querySelector('input[name="consentimiento"]:checked').value !== 'Si')) { alert('Debe aceptar participar para continuar.'); return; }
+          if (stepData.id === 'victimizacion' || stepData.id === 'denuncio') { resolveActiveSequence(); const newIndex = activeSequence.findIndex(s => s.id === stepData.id); if (newIndex !== -1) currentStepIndex = newIndex; }
           currentStepIndex++;
-          if (stepData.id === 'confianza_policia_municipal') {
-            const slider = document.getElementById('slider_municipal');
-            const hidden = document.getElementById('hidden_municipal');
-            if (slider && hidden) hidden.value = slider.value;
-          }
-          renderStep(currentStepIndex);
-          updateProgress();
+          if (stepData.id === 'confianza_policia_municipal') { const slider = document.getElementById('slider_municipal'); const hidden = document.getElementById('hidden_municipal'); if (slider && hidden) hidden.value = slider.value; }
+          renderStep(currentStepIndex); updateProgress();
         });
-        if (index > 0) {
-          document.getElementById('prevBtn').addEventListener('click', () => {
-            currentStepIndex--;
-            renderStep(currentStepIndex);
-            updateProgress();
-          });
-        }
+        if (index > 0) { document.getElementById('prevBtn').addEventListener('click', () => { currentStepIndex--; renderStep(currentStepIndex); updateProgress(); }); }
         updateProgress();
       }
 
-      function updateProgress() {
-        const total = activeSequence.length || 1;
-        const percent = Math.round((currentStepIndex / total) * 100);
-        progressFill.style.width = percent + '%';
-      }
-
-      resolveActiveSequence();
-      renderStep(0);
-      form.addEventListener('change', (e) => {
-        if (e.target.name === 'delitos' || e.target.name === 'denuncio') { resolveActiveSequence(); }
-      });
+      function updateProgress() { const total = activeSequence.length || 1; progressFill.style.width = Math.round((currentStepIndex / total) * 100) + '%'; }
+      resolveActiveSequence(); renderStep(0);
+      form.addEventListener('change', (e) => { if (e.target.name === 'delitos' || e.target.name === 'denuncio') { resolveActiveSequence(); } });
     })();
   </script>
 </body>
