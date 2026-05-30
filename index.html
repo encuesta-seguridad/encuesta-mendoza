@@ -57,13 +57,14 @@
       <div class="subtitle">Mendoza · Respuestas anónimas</div>
     </div>
     <div class="progress-bar"><div class="progress-fill" id="progressFill"></div></div>
-    <form id="mainForm" novalidate action="https://script.google.com/macros/s/AKfycbzFsn9IN84YjhZYrBxNbJ06e_fhXbBJJoH-l7-raN-xsuzJLiohXWmqbZ_P32c7jJoH/exec" method="POST" target="hidden_iframe">
+    <form id="mainForm" novalidate>
       <div class="step-container" id="stepContainer"></div>
     </form>
-    <iframe name="hidden_iframe" style="display:none;"></iframe>
   </div>
 
   <script>
+    const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbzFsn9IN84YjhZYrBxNbJ06e_fhXbBJJoH-l7-raN-xsuzJLiohXWmqbZ_P32c7jJoH/exec';
+    
     (function() {
       const steps = [
         { id: 'consent', html: `<div class="step-label">Confidencialidad</div><div class="step-question">¿Acepta participar voluntariamente en esta encuesta anónima?</div><div class="option-group"><div class="radio-row"><input type="radio" name="consentimiento" id="consent_si" value="Si" required><label for="consent_si">Sí, acepto participar</label></div><div class="radio-row"><input type="radio" name="consentimiento" id="consent_no" value="No"><label for="consent_no">No, prefiero no participar</label></div></div>` },
@@ -147,12 +148,31 @@
         if (index >= activeSequence.length) {
           stepContainer.innerHTML = `<div class="step active"><div class="step-question" style="text-align:center;">Gracias por completar la encuesta.</div><button id="submitBtn" type="button">Enviar respuestas</button><div id="formStatus"></div></div>`;
           document.getElementById('submitBtn').addEventListener('click', () => {
-            document.getElementById('formStatus').innerHTML = '<div class="message success">Enviando...</div>';
-            form.submit();
-            setTimeout(() => {
-              document.getElementById('formStatus').innerHTML = '<div class="message success">✅ Respuestas enviadas. ¡Muchas gracias!</div>';
+            const statusDiv = document.getElementById('formStatus');
+            statusDiv.innerHTML = '<div class="message success">Enviando...</div>';
+            
+            // Recolectar TODOS los campos manualmente (como prueba.html)
+            const params = new URLSearchParams();
+            const formElements = form.querySelectorAll('input, select, textarea');
+            formElements.forEach(el => {
+              if (el.name) {
+                if ((el.type === 'radio' || el.type === 'checkbox') && !el.checked) return;
+                params.append(el.name, el.value);
+              }
+            });
+            
+            // Enviar exactamente como prueba.html
+            fetch(SCRIPT_URL, {
+              method: 'POST',
+              mode: 'no-cors',
+              headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+              body: params.toString()
+            }).then(() => {
+              statusDiv.innerHTML = '<div class="message success">✅ Respuestas enviadas. ¡Muchas gracias!</div>';
               document.getElementById('submitBtn').disabled = true;
-            }, 1000);
+            }).catch(err => {
+              statusDiv.innerHTML = '<div class="message error">❌ Error al enviar. Intente nuevamente.</div>';
+            });
           });
           progressFill.style.width = '100%'; return;
         }
