@@ -1,0 +1,12 @@
+﻿<button onclick="enviar()">Enviar prueba</button>
+<script>
+function enviar() {
+  fetch('https://script.google.com/macros/s/AKfycbzFsn9IN84YjhZYrBxNbJ06e_fhXbBJJoH-l7-raN-xsuzJLiohXWmqbZ_P32c7jJoH/exec', {
+    method: 'POST',
+    mode: 'no-cors',
+    headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+    body: 'consentimiento=Si&edad=30&delitos=Robo&basal_sensacion=Relajado'
+  }).then(() => alert('Enviado'))
+  .catch(err => alert('Error: ' + err));
+}
+</script>
