@@ -250,50 +250,78 @@ repeat;background-position:right 12px center;padding-right:34px}
 top:14px;padding-top:14px;border-top:0.5px solid var(--cream3)}
 
 /* BUTTONS */
-.btn{display:inline-flex;align-items:center;justify-
+.btn{
+  -webkit-appearance:none;appearance:none;
+  display:inline-flex;align-
 
-content:center;gap:7px;padding:11px 20px;border-radius:9px;font-
+items:center;justify-content:center;gap:7px;
+  padding:12px 20px;border-
 
-size:14px;font-weight:500;font-family:'DM Sans',sans-
+radius:9px;font-size:14px;font-weight:500;
+  font-family:'DM Sans',sans-
 
-serif;cursor:pointer;border:none;transition:all .14s;-webkit-tap-highlight-
+serif;cursor:pointer;border:none;
+  transition:background .14s,color .14s;
+  -
 
-color:transparent}
-.btn-main{flex:1;background:var(--navy);color:#fff}
+webkit-tap-highlight-color:transparent;
+  text-decoration:none;box-
+
+sizing:border-box;line-height:1.4;
+  outline:none;
+}
+.btn-main
+
+{flex:1;background:var(--navy);color:#fff !important;border:none}
 .btn-
 
 main:hover{background:var(--navy2)}
-.btn-main:disabled{background:var(--
+.btn-main:disabled{background:var(--ink3) 
 
-ink3);cursor:not-allowed}
-.btn-back{background:#fff;color:var(--
+!important;cursor:not-allowed}
+.btn-back{
+  background:#fff;color:var(--ink2) 
 
-ink2);border:0.5px solid var(--wire);padding:11px 14px;font-size:13px}
-.btn-
+!important;
+  border:1px solid var(--wire);padding:11px 14px;font-
 
-back:hover{background:var(--cream2)}
-.btn-yes{flex:1;background:var(--
+size:13px;flex-shrink:0;
+}
+.btn-back:hover{background:var(--cream2)}
+.btn-yes{
+  
 
-ok);color:#fff}
-.btn-yes:hover{background:var(--ok2)}
-.btn-no
+flex:1;background:var(--ok) !important;color:#fff !important;
+  
 
-{background:#fff;color:var(--err);border:0.5px solid #D08080;padding:11px 
+border:none;font-size:15px;padding:13px 20px;
+}
+.btn-yes:hover{background:var
 
-18px}
-.btn-no:hover{background:#FFF0F0}
-.nav{display:flex;gap:9px;margin-
+(--ok2) !important}
+.btn-no{
+  background:#fff !important;color:var(--err) !
 
-top:18px}
+important;
+  border:1px solid #D08080;padding:13px 18px;font-size:15px;flex-
+
+shrink:0;
+}
+.btn-no:hover{background:#FFF0F0 !important}
+.nav
+
+{display:flex;gap:9px;margin-top:18px;width:100%}
 
 /* SPINNER */
-.spin{width:16px;height:16px;border:2px solid rgba
+.spin
 
-(255,255,255,.3);border-top-color:#fff;border-radius:50%;animation:rot .6s 
+{width:16px;height:16px;border:2px solid rgba(255,255,255,.3);border-top-
 
-linear infinite;display:none}
+color:#fff;border-radius:50%;animation:rot .6s linear infinite;display:none}
 @keyframes rot{to{transform:rotate(360deg)}}
-.loading .spin{display:block}.loading .btnlbl{display:none}
+.loading .spin
+
+{display:block}.loading .btnlbl{display:none}
 
 /* ERR */
 .errbox
