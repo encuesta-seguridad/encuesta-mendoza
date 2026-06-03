@@ -1002,12 +1002,25 @@ async function submitForm() {
   err.style.display = 'none';
   btn.classList.add('loading'); btn.disabled = true;
   try {
-    await fetch(SHEET_URL, { method:'POST', headers:{'Content-Type':'application/json'}, body:JSON.stringify(collect()), mode:'no-cors' });
-    document.querySelectorAll('.step').forEach(s=>s.classList.remove('active'));
-    document.getElementById('s-thk').classList.add('active');
-    window.scrollTo(0,0);
-    document.getElementById('pbar').style.width='100%';
-    document.getElementById('pctr').textContent='Completada ✓';
+    const data = collect();
+    // Encode as URL params — único método que Apps Script recibe
+    // cuando se llama desde un dominio externo (no-cors bloquea el body)
+    const params = new URLSearchParams();
+    Object.entries(data).forEach(([k,v]) => { if(v !== undefined && v !== null) params.append(k, v); });
+    const url = SHEET_URL + '?' + params.toString();
+    // Usamos un iframe invisible para disparar el GET sin bloquear ni dar error CORS
+    const iframe = document.createElement('iframe');
+    iframe.style.display = 'none';
+    iframe.src = url;
+    document.body.appendChild(iframe);
+    // Mostramos gracias inmediatamente (no podemos leer la respuesta por CORS)
+    setTimeout(function() {
+      document.querySelectorAll('.step').forEach(s=>s.classList.remove('active'));
+      document.getElementById('s-thk').classList.add('active');
+      window.scrollTo(0,0);
+      document.getElementById('pbar').style.width='100%';
+      document.getElementById('pctr').textContent='Completada ✓';
+    }, 800);
   } catch(e) {
     err.textContent = 'Error al enviar. Verificá tu conexión e intentá de nuevo.';
     err.style.display='block';
