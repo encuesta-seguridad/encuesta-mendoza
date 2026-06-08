@@ -137,7 +137,7 @@ select{-webkit-appearance:none;background-image:url("data:image/svg+xml,%3Csvg x
 </style>
 </head>
 <body>
-<script>const SHEET_URL="https://script.google.com/macros/s/AKfycbzL8wDrv3x4V-duhbSxi9wRF8GZ5F9M0kn2HteIiAG6K2C_Heej5L3e1V7gDGbGGWR7Eg/exec";</script>
+<script>const SHEET_URL="https://script.google.com/macros/s/AKfycbwwCKCfnS7BpUOmrgFUxs6w1vFC5b2VGbOWEPx6hFWyPiMDhyEFSOg3XpJNp5lo8ZIm2A/exec";</script>
 
 <div class="shell">
   <div class="topbar" id="topbar">
@@ -669,6 +669,63 @@ select{-webkit-appearance:none;background-image:url("data:image/svg+xml,%3Csvg x
       <div class="nav"><button class="btn btn-back" onclick="back()">←</button><button class="btn btn-main" onclick="next()">Siguiente →</button></div>
     </div>
 
+
+    <!-- ══════════════════════════════════════════
+         S-INV  INVERSIÓN EN SEGURIDAD (NUEVA)
+    ══════════════════════════════════════════ -->
+    <div class="step" id="s-inv">
+      <div class="card">
+        <div class="qlabel">🔒 Inversión en seguridad</div>
+        <div class="qtext">En los últimos 12 meses, ¿debieron invertir recursos económicos para mejorar las condiciones de seguridad en su hogar?</div>
+        <div class="opts" style="flex-direction:row;gap:16px;flex-wrap:wrap">
+          <label class="opt" style="flex:1;min-width:120px;justify-content:center">
+            <input type="radio" name="invirtio_seguridad" value="SI" onclick="onInvirtioChange('SI')">
+            <label style="font-size:1.1rem;font-weight:600">✅ Sí</label>
+          </label>
+          <label class="opt" style="flex:1;min-width:120px;justify-content:center">
+            <input type="radio" name="invirtio_seguridad" value="NO" onclick="onInvirtioChange('NO')">
+            <label style="font-size:1.1rem;font-weight:600">❌ No</label>
+          </label>
+        </div>
+      </div>
+
+      <!-- Sub-bloque SI: medidas adoptadas -->
+      <div class="card" id="blk-inv-si" style="display:none;margin-top:10px">
+        <div class="qlabel">🛡️ Medidas adoptadas</div>
+        <div class="qtext">¿Cuál o cuáles? <span class="qhint" style="display:inline">(puede marcar más de una)</span></div>
+        <div class="opts" style="flex-direction:column">
+          <label class="opt"><input type="checkbox" name="medidas_seg" value="Alarma"><label>🔔 Alarma</label></label>
+          <label class="opt"><input type="checkbox" name="medidas_seg" value="Cerco de concertina"><label>🌀 Cerco de concertina</label></label>
+          <label class="opt"><input type="checkbox" name="medidas_seg" value="Cerco electrónico"><label>⚡ Cerco electrónico</label></label>
+          <label class="opt"><input type="checkbox" name="medidas_seg" value="Cámaras de vigilancia"><label>📷 Cámaras de vigilancia</label></label>
+          <label class="opt">
+            <input type="checkbox" id="cb-med-otro" name="medidas_seg" value="Otro" onchange="toggleMedOtro()">
+            <label>➕ Otro</label>
+          </label>
+          <div id="blk-med-otro" style="display:none;margin-top:8px">
+            <input type="text" id="medidas_seguridad_otro" placeholder="Especifique…" style="width:100%;max-width:340px">
+          </div>
+        </div>
+      </div>
+
+      <!-- Sub-bloque NO: razón -->
+      <div class="card" id="blk-inv-no" style="display:none;margin-top:10px">
+        <div class="qlabel">💭 Motivo</div>
+        <div class="qtext">¿Por qué no realizaron inversiones en seguridad?</div>
+        <div class="opts" style="flex-direction:column">
+          <label class="opt"><input type="radio" name="razon_no_invirtio" value="No lo considera necesario"><label>🤷 No lo considera necesario</label></label>
+          <label class="opt"><input type="radio" name="razon_no_invirtio" value="No mejoraría la situación actual"><label>🔄 No mejoraría la situación actual</label></label>
+          <label class="opt"><input type="radio" name="razon_no_invirtio" value="No lo puedo pagar"><label>💸 No lo puedo pagar</label></label>
+          <label class="opt"><input type="radio" name="razon_no_invirtio" value="Otro"><label>➕ Otro motivo</label></label>
+        </div>
+      </div>
+
+      <div class="nav">
+        <button class="btn btn-back" onclick="back()">←</button>
+        <button class="btn btn-main" id="n-inv" onclick="next()" disabled>Siguiente →</button>
+      </div>
+    </div>
+
     <!-- ══════════════════════════════════════════
          S-22  DATOS PERSONALES
     ══════════════════════════════════════════ -->
@@ -800,6 +857,26 @@ select{-webkit-appearance:none;background-image:url("data:image/svg+xml,%3Csvg x
 // ÁRBOL DE NAVEGACIÓN
 // Cada step sabe cuál es el siguiente según el estado
 // ══════════════════════════════════════════════════════
+// ── CONTROL DE RESPUESTA ÚNICA (localStorage) ─────────────────
+(function() {
+  if (localStorage.getItem('encuesta_snk_completada') === '1') {
+    document.addEventListener('DOMContentLoaded', function() {
+      const shell = document.querySelector('.shell');
+      if (shell) {
+        shell.innerHTML = `
+          <div style="max-width:520px;margin:60px auto;padding:32px 28px;background:#fff;border-radius:12px;box-shadow:0 2px 16px rgba(0,0,0,.10);text-align:center;font-family:inherit">
+            <div style="font-size:3rem;margin-bottom:16px">✅</div>
+            <h2 style="color:#0A5C42;font-size:1.3rem;margin-bottom:12px">Ya completó esta encuesta</h2>
+            <p style="color:#444;font-size:.97rem;line-height:1.6">
+              Su respuesta fue registrada. Esta encuesta solo puede completarse una vez por dispositivo.<br><br>
+              Muchas gracias por su participación.
+            </p>
+          </div>`;
+      }
+    });
+  }
+})();
+
 const ST = {};       // estado acumulado
 let cur = 0;
 const hist = [0];   // historial para Back
@@ -833,7 +910,8 @@ function nextOf(s) {
     case 18: return 19;
     case 19: return 20;
     case 20: return 21;
-    case 21: return 22;
+    case 21: return 'inv';
+    case 'inv': return 22;
     case 22: return 23;
     case 23: return 24;
     case 24: return 25;
@@ -915,6 +993,7 @@ document.addEventListener('change', function(e) {
   if(inp.name==='fue_victima')   setVictima(inp.value==='Si'?'si':'no');
   if(inp.name==='denuncio')      setDenuncia(inp.value==='Si'?'si':inp.value==='No'?'no':'nr');
   if(inp.name==='intento_denuncia') setIntento(inp.value.startsWith('Intenté')?'si':'no');
+  if(inp.name==='razon_no_invirtio') { ST.razon_no_invirtio = inp.value; updateBtn('inv'); }
   updateBtn(cur);
   const sub = document.getElementById('btn-sub');
   if(sub) sub.disabled = !ST.d2_locus_control;
@@ -926,6 +1005,7 @@ document.addEventListener('change', function(e) {
   if(inp.type !== 'checkbox') return;
   const o = inp.closest('.opt');
   if(o) o.classList.toggle('sel', inp.checked);
+  if(inp.name==='medidas_seg') updateBtn('inv');
   updateBtn(cur);
 });
 
@@ -958,6 +1038,7 @@ function isReady(s) {
     case 19: return !!ST.b2_origen_problema;
     case 20: return !!ST.pesadillas_frecuencia && !!ST.c2_mano_dura;
     case 21: return true;
+    case 'inv': return isReadyInv();
     case 22: return !!ST.sexo && !!ST.educacion && !!document.getElementById('departamento').value;
     case 23: return !!ST.d1_fuente_informacion;
     case 24: return !!ST.identificacion_partidaria;
@@ -990,6 +1071,15 @@ function collect() {
   d.ultimo_hecho = document.getElementById('ultimo_hecho').value;
   d.olfato_asociacion = document.getElementById('olfato_asociacion').value;
   d.grounding_seguridad = document.getElementById('grounding_seguridad').value;
+  // Inversión en seguridad
+  d.invirtio_seguridad = ST.invirtio_seguridad || '';
+  if (ST.invirtio_seguridad === 'SI') {
+    d.medidas_seguridad = [...document.querySelectorAll('input[name="medidas_seg"]:checked')].map(c=>c.value).join(' | ');
+    d.medidas_seguridad_otro = document.getElementById('medidas_seguridad_otro')?.value || '';
+  }
+  if (ST.invirtio_seguridad === 'NO') {
+    d.razon_no_invirtio = ST.razon_no_invirtio || '';
+  }
   d.datos_edad = document.getElementById('datos_edad').value;
   d.departamento = document.getElementById('departamento').value;
   return d;
@@ -1013,6 +1103,8 @@ async function submitForm() {
     iframe.style.display = 'none';
     iframe.src = url;
     document.body.appendChild(iframe);
+    // Marcar encuesta como completada en este dispositivo
+    localStorage.setItem('encuesta_snk_completada', '1');
     // Mostramos gracias inmediatamente (no podemos leer la respuesta por CORS)
     setTimeout(function() {
       document.querySelectorAll('.step').forEach(s=>s.classList.remove('active'));
