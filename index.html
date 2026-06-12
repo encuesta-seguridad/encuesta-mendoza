@@ -584,9 +584,10 @@ select{-webkit-appearance:none;background-image:url("data:image/svg+xml,%3Csvg x
           <label class="opt"><input type="checkbox" name="sens_corp" value="Sensación de que alguien me observa"><label>👁️ Sensación de que alguien me observa</label></label>
           <label class="opt"><input type="checkbox" name="sens_corp" value="Ninguna, me siento tranquilo/a"><label>😌 Ninguna, me siento tranquilo/a</label></label>
         </div>
-        <div style="margin-top:14px">
-          <div class="sq-lbl" style="margin-bottom:6px">👃 ¿Qué olor le genera sensación de inseguridad o peligro?</div>
-          <input type="text" id="olfato_asociacion" placeholder="Ej: humedad, alcohol…">
+        <div style="margin-top:20px;padding:14px 16px;background:rgba(230,168,23,0.10);border:2px dashed #c87000;border-radius:10px">
+          <p style="font-size:13px;font-weight:700;color:#c87000;margin-bottom:6px">👃 ¿Qué olor asocia usted con inseguridad o peligro? <span style="font-weight:400;color:#999;font-size:12px">(opcional)</span></p>
+          <p style="font-size:12px;color:#888;margin-bottom:8px">Esta pregunta es breve pero muy valiosa para la investigación. Ej: humedad, alcohol, diesel, basura…</p>
+          <input type="text" id="olfato_asociacion" placeholder="Escriba aquí…" style="width:100%;max-width:340px;border:1.5px solid #c87000;border-radius:6px;padding:8px 10px;font-size:14px;background:#fffdf5">
         </div>
       </div>
       <div class="nav"><button class="btn btn-back" onclick="back()">←</button><button class="btn btn-main" id="n17" onclick="next()" disabled>Siguiente →</button></div>
@@ -666,14 +667,14 @@ select{-webkit-appearance:none;background-image:url("data:image/svg+xml,%3Csvg x
         <p class="qhint">Ej: el sonido de la lluvia, el aroma a jazmín, la cocina de mi casa…</p>
         <textarea id="grounding_seguridad" placeholder="Describa libremente…"></textarea>
       </div>
-      <div class="nav"><button class="btn btn-back" onclick="back()">←</button><button class="btn btn-main" onclick="next()">Siguiente →</button></div>
+      <div class="nav"><button class="btn btn-back" onclick="back()">←</button><button class="btn btn-main" id="n21" onclick="next()">Siguiente →</button></div>
     </div>
 
 
     <!-- ══════════════════════════════════════════
          S-INV  INVERSIÓN EN SEGURIDAD (NUEVA)
     ══════════════════════════════════════════ -->
-    <div class="step" id="s-inv">
+    <div class="step" id="sinv">
       <div class="card">
         <div class="qlabel">🔒 Inversión en seguridad</div>
         <div class="qtext">En los últimos 12 meses, ¿debieron invertir recursos económicos para mejorar las condiciones de seguridad en su hogar?</div>
@@ -722,7 +723,7 @@ select{-webkit-appearance:none;background-image:url("data:image/svg+xml,%3Csvg x
 
       <div class="nav">
         <button class="btn btn-back" onclick="back()">←</button>
-        <button class="btn btn-main" id="n-inv" onclick="next()" disabled>Siguiente →</button>
+        <button class="btn btn-main" id="ninv" onclick="next()" disabled>Siguiente →</button>
       </div>
     </div>
 
@@ -841,7 +842,7 @@ select{-webkit-appearance:none;background-image:url("data:image/svg+xml,%3Csvg x
     </div>
 
     <!-- GRACIAS -->
-    <div class="step" id="s-thk">
+    <div class="step" id="sthk">
       <div class="card"><div class="thk">
         <div class="thk-check"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#0A5C42" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg></div>
         <h2 class="thk-h">¡Muchas gracias! 🙏</h2>
@@ -857,28 +858,6 @@ select{-webkit-appearance:none;background-image:url("data:image/svg+xml,%3Csvg x
 // ÁRBOL DE NAVEGACIÓN
 // Cada step sabe cuál es el siguiente según el estado
 // ══════════════════════════════════════════════════════
-
-// ── TRACKING DE ABANDONO ──────────────────────────────────────
-// Genera un ID de sesión único por visita (no identificable)
-const SESSION_ID = Math.random().toString(36).substr(2, 9) + Date.now().toString(36);
-let  _lastPaso   = null;  // evitar duplicados consecutivos
-
-/** Envía un evento silencioso al script indicando el paso actual */
-function trackPaso(paso, tipo) {
-  tipo = tipo || 'paso';
-  if (paso === _lastPaso && tipo === 'paso') return; // no duplicar
-  _lastPaso = paso;
-  try {
-    const url = SHEET_URL
-      + '?evento=paso&paso=' + encodeURIComponent(paso)
-      + '&sid='  + SESSION_ID
-      + '&t='    + Date.now()
-      + '&tipo=' + tipo;
-    // Usamos fetch en modo no-cors para no bloquear ni generar error visible
-    fetch(url, { method:'GET', mode:'no-cors' }).catch(function(){});
-  } catch(e) { /* silencioso */ }
-}
-
 // ── CONTROL DE RESPUESTA ÚNICA (localStorage) ─────────────────
 (function() {
   if (localStorage.getItem('encuesta_snk_completada') === '1') {
@@ -937,6 +916,7 @@ function nextOf(s) {
     case 22: return 23;
     case 23: return 24;
     case 24: return 25;
+    case 25: return 'thk';
     default: return null;
   }
 }
@@ -962,14 +942,23 @@ function go(n) {
   updateBtn(n);
 }
 
-function next() { const n = nextOf(cur); if(n) { hist.push(cur); go(n); trackPaso(n); } }
+function next() { const n = nextOf(cur); if(n) { hist.push(cur); go(n); } }
 function back() {
   if(hist.length > 1) { hist.pop(); go(hist[hist.length-1]); }
 }
 
 // ─ Bienvenida ────────────────────────────────────────
 function consent(yes) {
-  if (!yes) { document.getElementById('s0').classList.remove('active'); document.getElementById('s-dcl').classList.add('active'); return; }
+  if (!yes) {
+    // Registrar rechazo silenciosamente (sin bloquear)
+    try {
+      const url = SHEET_URL + '?consent=No%2C+gracias&timestamp=' + encodeURIComponent(new Date().toLocaleString('es-AR'));
+      fetch(url, { method:'GET', mode:'no-cors' }).catch(function(){});
+    } catch(e) {}
+    document.getElementById('s0').classList.remove('active');
+    document.getElementById('s-dcl').classList.add('active');
+    return;
+  }
   ST.consent = 'Sí, acepto';
   document.getElementById('pctr').style.visibility = 'visible';
   hist.push(0); go(1);
@@ -1118,7 +1107,6 @@ async function submitForm() {
     // Encode as URL params — único método que Apps Script recibe
     // cuando se llama desde un dominio externo (no-cors bloquea el body)
     const params = new URLSearchParams();
-    params.append('sid', SESSION_ID);
     Object.entries(data).forEach(([k,v]) => { if(v !== undefined && v !== null) params.append(k, v); });
     const url = SHEET_URL + '?' + params.toString();
     // Usamos un iframe invisible para disparar el GET sin bloquear ni dar error CORS
@@ -1126,8 +1114,6 @@ async function submitForm() {
     iframe.style.display = 'none';
     iframe.src = url;
     document.body.appendChild(iframe);
-    // Registrar envío exitoso
-    trackPaso('envio', 'envio');
     // Marcar encuesta como completada en este dispositivo
     localStorage.setItem('encuesta_snk_completada', '1');
     // Mostramos gracias inmediatamente (no podemos leer la respuesta por CORS)
