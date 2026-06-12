@@ -695,10 +695,10 @@ select{-webkit-appearance:none;background-image:url("data:image/svg+xml,%3Csvg x
         <div class="qlabel">🛡️ Medidas adoptadas</div>
         <div class="qtext">¿Cuál o cuáles? <span class="qhint" style="display:inline">(puede marcar más de una)</span></div>
         <div class="opts" style="flex-direction:column">
-          <label class="opt"><input type="checkbox" name="medidas_seg" value="Alarma"><label>🔔 Alarma</label></label>
-          <label class="opt"><input type="checkbox" name="medidas_seg" value="Cerco de concertina"><label>🌀 Cerco de concertina</label></label>
-          <label class="opt"><input type="checkbox" name="medidas_seg" value="Cerco electrónico"><label>⚡ Cerco electrónico</label></label>
-          <label class="opt"><input type="checkbox" name="medidas_seg" value="Cámaras de vigilancia"><label>📷 Cámaras de vigilancia</label></label>
+          <label class="opt"><input type="checkbox" name="medidas_seg" value="Alarma" onclick="updateBtn('inv')"><label>🔔 Alarma</label></label>
+          <label class="opt"><input type="checkbox" name="medidas_seg" value="Cerco de concertina" onclick="updateBtn('inv')"><label>🌀 Cerco de concertina</label></label>
+          <label class="opt"><input type="checkbox" name="medidas_seg" value="Cerco electrónico" onclick="updateBtn('inv')"><label>⚡ Cerco electrónico</label></label>
+          <label class="opt"><input type="checkbox" name="medidas_seg" value="Cámaras de vigilancia" onclick="updateBtn('inv')"><label>📷 Cámaras de vigilancia</label></label>
           <label class="opt">
             <input type="checkbox" id="cb-med-otro" name="medidas_seg" value="Otro" onchange="toggleMedOtro()">
             <label>➕ Otro</label>
@@ -714,10 +714,10 @@ select{-webkit-appearance:none;background-image:url("data:image/svg+xml,%3Csvg x
         <div class="qlabel">💭 Motivo</div>
         <div class="qtext">¿Por qué no realizaron inversiones en seguridad?</div>
         <div class="opts" style="flex-direction:column">
-          <label class="opt"><input type="radio" name="razon_no_invirtio" value="No lo considera necesario"><label>🤷 No lo considera necesario</label></label>
-          <label class="opt"><input type="radio" name="razon_no_invirtio" value="No mejoraría la situación actual"><label>🔄 No mejoraría la situación actual</label></label>
-          <label class="opt"><input type="radio" name="razon_no_invirtio" value="No lo puedo pagar"><label>💸 No lo puedo pagar</label></label>
-          <label class="opt"><input type="radio" name="razon_no_invirtio" value="Otro"><label>➕ Otro motivo</label></label>
+          <label class="opt"><input type="radio" name="razon_no_invirtio" value="No lo considera necesario" onclick="ST.razon_no_invirtio=this.value;updateBtn('inv')"><label>🤷 No lo considera necesario</label></label>
+          <label class="opt"><input type="radio" name="razon_no_invirtio" value="No mejoraría la situación actual" onclick="ST.razon_no_invirtio=this.value;updateBtn('inv')"><label>🔄 No mejoraría la situación actual</label></label>
+          <label class="opt"><input type="radio" name="razon_no_invirtio" value="No lo puedo pagar" onclick="ST.razon_no_invirtio=this.value;updateBtn('inv')"><label>💸 No lo puedo pagar</label></label>
+          <label class="opt"><input type="radio" name="razon_no_invirtio" value="Otro" onclick="ST.razon_no_invirtio=this.value;updateBtn('inv')"><label>➕ Otro motivo</label></label>
         </div>
       </div>
 
@@ -1026,6 +1026,38 @@ function updateBtn(s) {
   if(!b) return;
   b.disabled = !isReady(s);
 }
+
+// ─ Inversión en seguridad ─────────────────────────────────────
+function onInvirtioChange(val) {
+  ST.invirtio_seguridad = val;
+  if (val === 'SI') { ST.razon_no_invirtio = ''; }
+  if (val === 'NO') { ST.medidas_seguridad = ''; }
+  document.getElementById('blk-inv-si').style.display = val === 'SI' ? 'block' : 'none';
+  document.getElementById('blk-inv-no').style.display = val === 'NO' ? 'block' : 'none';
+  updateBtn('inv');
+}
+
+function toggleMedOtro() {
+  const on = document.getElementById('cb-med-otro').checked;
+  document.getElementById('blk-med-otro').style.display = on ? 'block' : 'none';
+  updateBtn('inv');
+}
+
+function isReadyInv() {
+  const val = ST.invirtio_seguridad;
+  if (!val) return false;
+  if (val === 'SI') {
+    return document.querySelectorAll('input[name="medidas_seg"]:checked').length > 0;
+  }
+  if (val === 'NO') {
+    // Leer también del DOM por si ST no está sincronizado
+    const checked = document.querySelector('input[name="razon_no_invirtio"]:checked');
+    if (checked) ST.razon_no_invirtio = checked.value;
+    return !!ST.razon_no_invirtio;
+  }
+  return false;
+}
+
 function isReady(s) {
   switch(s) {
     case 1: return !!ST.sensacion_inicial;
