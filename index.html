@@ -54,15 +54,10 @@ body{background:var(--cream);color:var(--ink);font-family:'DM Sans',sans-serif;f
 .sq{margin-bottom:14px}.sq:last-child{margin-bottom:0}
 .sq-lbl{font-size:13px;color:var(--ink2);font-weight:500;margin-bottom:6px}
 .sbtns{display:flex;gap:5px}
-.sbtn{flex:1;padding:9px 4px;border:0.5px solid var(--wire);border-radius:7px;background:#fff;cursor:pointer;font-size:14px;font-weight:500;color:var(--ink2);transition:all .12s;text-align:center;-webkit-tap-highlight-color:transparent;font-family:'DM Sans',sans-serif}
+.sbtn{flex:1;padding:9px 4px;border:0.5px solid var(--wire);border-radius:7px;background:#fff;cursor:pointer;font-size:14px;font-weight:500;color:var(--ink2);transition:all .12s;text-align:center}
 .sbtn:hover{background:var(--cream2)}
 .sbtn.sel{background:var(--navy);border-color:var(--navy);color:#fff}
 .sends{display:flex;justify-content:space-between;font-size:10px;color:var(--ink3);margin-top:3px;padding:0 1px}
-.sbtns5{display:flex;gap:5px}
-.sbtn5{flex:1;padding:9px 4px;border:0.5px solid var(--wire);border-radius:7px;background:#fff;cursor:pointer;font-size:14px;font-weight:500;color:var(--ink2);transition:all .12s;text-align:center}
-.sbtn5:hover{background:var(--cream2)}
-.sbtn5.sel{background:var(--navy);border-color:var(--navy);color:#fff}
-.sends5{display:flex;justify-content:space-between;font-size:10px;color:var(--ink3);margin-top:3px;padding:0 1px}
 .accordion{margin-top:12px;border:0.5px solid var(--wire);border-radius:8px;overflow:hidden}
 .accordion-header{background:var(--cream2);padding:10px 14px;cursor:pointer;font-weight:500;font-size:13px;display:flex;justify-content:space-between;align-items:center}
 .accordion-header:hover{background:var(--cream3)}
@@ -109,7 +104,7 @@ select{-webkit-appearance:none;background-image:url("data:image/svg+xml,%3Csvg x
 <div class="shell">
   <div class="topbar" id="topbar">
     <div class="topbar-row">
-      <div class="topbar-title"><small>Provincia de Mendoza</small>Encuesta Victimológica y de Seguridad Ciudadana</div>
+      <div class="topbar-title"><small>Provincia de Mendoza</small>Encuesta de Seguridad Ciudadana</div>
       <div class="anon-pill"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>Anónima</div>
     </div>
     <div class="pbar-wrap"><div class="pbar-fill" id="pbar" style="width:0%"></div></div>
@@ -124,8 +119,8 @@ select{-webkit-appearance:none;background-image:url("data:image/svg+xml,%3Csvg x
         <div class="wlc-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#1A3A5C" stroke-width="1.8"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg></div>
         <h1 class="wlc-h">Su experiencia importa 🏙️</h1>
         <p class="wlc-body">Esta encuesta forma parte de un estudio académico sobre percepción de inseguridad y políticas públicas en la Provincia de Mendoza.<br><br>Sus respuestas —junto a las de otros vecinos— permiten construir un mapa real de cómo vivimos la seguridad cotidiana, más allá de las estadísticas oficiales.</p>
-        <div class="info-pills"><div class="ipill">⏱️ 10 a 12 minutos</div><div class="ipill">🔒 100% anónima</div><div class="ipill">❓ Una pregunta a la vez</div></div>
-        <div class="wlc-note">No hay respuestas correctas ni incorrectas. No se registra ningún dato que permita identificarle. Puede abandonar en cualquier momento.</div>
+        <div class="info-pills"><div class="ipill">⏱️ 4 a 7 minutos</div><div class="ipill">🔒 100% anónima</div><div class="ipill">❓ Una pregunta a la vez</div></div>
+        <div class="wlc-note"><strong>Sus datos están protegidos.</strong> No solicitamos nombre, DNI, email, ni dirección. No se solicita descargar ni ejecutar archivos. Las respuestas se almacenan sin ningún vínculo con su identidad.</div>
       </div>
       <div class="nav" style="margin-top:14px">
         <button class="btn btn-yes" onclick="consent(true)">Sí, quiero participar →</button>
@@ -144,9 +139,9 @@ select{-webkit-appearance:none;background-image:url("data:image/svg+xml,%3Csvg x
         <div class="opts">
           <label class="opt"><input type="radio" name="sensacion_inicial" value="Relajado, sin tensiones"><label>😌 Relajado, sin tensiones</label></label>
           <label class="opt"><input type="radio" name="sensacion_inicial" value="Un poco inquieto"><label>🙂 Un poco inquieto</label></label>
-          <label class="opt"><input type="radio" name="sensacion_inicial" value="Tensión leve (hombros, mandíbula)"><label>😐 Tensión leve (hombros, mandíbula)</label></label>
-          <label class="opt"><input type="radio" name="sensacion_inicial" value="Nervioso, corazón algo acelerado"><label>😟 Nervioso, corazón algo acelerado</label></label>
-          <label class="opt"><input type="radio" name="sensacion_inicial" value="Muy alerta, como si algo malo pudiera pasar"><label>😰 Muy alerta, como si algo malo pudiera pasar</label></label>
+          <label class="opt"><input type="radio" name="sensacion_inicial" value="Tensión leve (hombros, mandíbula)"><label>😐 Tensión leve</label></label>
+          <label class="opt"><input type="radio" name="sensacion_inicial" value="Nervioso, corazón algo acelerado"><label>😟 Nervioso</label></label>
+          <label class="opt"><input type="radio" name="sensacion_inicial" value="Muy alerta, como si algo malo pudiera pasar"><label>😰 Muy alerta</label></label>
         </div>
       </div>
       <div class="nav"><button class="btn btn-back" onclick="back()">←</button><button class="btn btn-main" id="n1" onclick="next()" disabled>Siguiente →</button></div>
@@ -189,7 +184,7 @@ select{-webkit-appearance:none;background-image:url("data:image/svg+xml,%3Csvg x
         <div class="opts" id="opts-vic">
           <label class="opt"><input type="checkbox" name="vic" value="Robo con violencia"><label>🔪 Robo con violencia</label></label>
           <label class="opt"><input type="checkbox" name="vic" value="Hurto sin violencia"><label>👜 Hurto (sin violencia)</label></label>
-          <label class="opt"><input type="checkbox" name="vic" value="Arrebato en vía pública"><label>🏃 Arrebato en vía pública</label></label>
+          <label class="opt"><input type="checkbox" name="vic" value="Arrebato en vía pública"><label>🏃 Arrebato</label></label>
           <label class="opt"><input type="checkbox" name="vic" value="Amenazas"><label>😡 Amenazas</label></label>
           <label class="opt"><input type="checkbox" name="vic" value="Lesiones"><label>🤕 Lesiones</label></label>
           <label class="opt"><input type="checkbox" name="vic" value="Acoso callejero"><label>😤 Acoso callejero</label></label>
@@ -207,19 +202,16 @@ select{-webkit-appearance:none;background-image:url("data:image/svg+xml,%3Csvg x
             <div class="accordion-header" onclick="toggleCyberAccordion()"><span>📌 ¿Cuál de las siguientes situaciones se parece más a lo que le ocurrió?</span><span class="accordion-icon">▼</span></div>
             <div class="accordion-content">
               <p style="margin-bottom:10px;font-size:12px;color:var(--ink3)">Puede marcar más de una opción.</p>
-              <div class="cyber-grid" id="cyber-grid">
+              <div class="cyber-grid">
                 <label class="cyber-opt"><input type="checkbox" name="ciber" value="Phishing"><label>📧 Phishing</label></label>
                 <label class="cyber-opt"><input type="checkbox" name="ciber" value="Smishing"><label>📱 Smishing</label></label>
                 <label class="cyber-opt"><input type="checkbox" name="ciber" value="Vishing"><label>📞 Vishing</label></label>
                 <label class="cyber-opt"><input type="checkbox" name="ciber" value="Fraude en compras online"><label>🛒 Fraude en compras online</label></label>
                 <label class="cyber-opt"><input type="checkbox" name="ciber" value="Ransomware"><label>🔒 Ransomware</label></label>
-                <label class="cyber-opt"><input type="checkbox" name="ciber" value="Pharming"><label>🌐 Pharming</label></label>
                 <label class="cyber-opt"><input type="checkbox" name="ciber" value="Robo de identidad"><label>🆔 Robo de identidad</label></label>
                 <label class="cyber-opt"><input type="checkbox" name="ciber" value="Ciberacoso"><label>😔 Ciberacoso</label></label>
-                <label class="cyber-opt"><input type="checkbox" name="ciber" value="Grooming"><label>⚠️ Grooming</label></label>
                 <label class="cyber-opt"><input type="checkbox" name="ciber" value="Hacking malicioso"><label>💻 Hacking malicioso</label></label>
                 <label class="cyber-opt"><input type="checkbox" name="ciber" value="Violación de datos"><label>📊 Violación de datos</label></label>
-                <label class="cyber-opt"><input type="checkbox" name="ciber" value="Distribución de malware"><label>🐛 Distribución de malware</label></label>
               </div>
             </div>
           </div>
@@ -250,7 +242,7 @@ select{-webkit-appearance:none;background-image:url("data:image/svg+xml,%3Csvg x
       </div></div>
       <div class="card"><div class="qlabel">💬 Motivación</div><div class="qtext">¿Por qué denunció?</div><div class="opts">
         <label class="opt"><input type="radio" name="por_que_denuncio" value="Porque tenía que reclamar al seguro"><label>📋 Reclamo al seguro</label></label>
-        <label class="opt"><input type="radio" name="por_que_denuncio" value="Para que se haga justicia"><label>⚖️ Para que se haga justicia</label></label>
+        <label class="opt"><input type="radio" name="por_que_denuncio" value="Para que se haga justicia"><label>⚖️ Justicia</label></label>
         <label class="opt"><input type="radio" name="por_que_denuncio" value="Para recuperar mis derechos o pertenencias"><label>🔑 Recuperar derechos</label></label>
         <label class="opt"><input type="radio" name="por_que_denuncio" value="Porque es una obligación ciudadana"><label>🏛️ Obligación ciudadana</label></label>
         <label class="opt"><input type="radio" name="por_que_denuncio" value="Porque me lo recomendaron"><label>👥 Me lo recomendaron</label></label>
@@ -340,31 +332,35 @@ select{-webkit-appearance:none;background-image:url("data:image/svg+xml,%3Csvg x
       <div class="nav"><button class="btn btn-back" onclick="back()">←</button><button class="btn btn-main" id="n11" onclick="next()" disabled>Siguiente →</button></div>
     </div>
 
-    <!-- S-12 [A1] -->
+    <!-- S-12 [A1] ATRIBUCIÓN CAUSAL -->
     <div class="step" id="s12">
       <div class="card card-ctrl">
         <div class="qlabel ctrl">💡 Contexto</div>
-        <div class="qtext">Cuando aumenta la inseguridad, ¿a qué lo atribuye?</div>
+        <div class="qtext">Cuando aumenta la inseguridad en una ciudad, ¿a qué lo atribuye principalmente?</div>
         <div class="opts">
           <label class="opt"><input type="radio" name="a1_atribucion_causal" value="Falta de inversión social"><label>📉 Falta de inversión social</label></label>
-          <label class="opt"><input type="radio" name="a1_atribucion_causal" value="Leyes penales blandas"><label>📜 Leyes penales blandas</label></label>
-          <label class="opt"><input type="radio" name="a1_atribucion_causal" value="Corrupción policial"><label>🔗 Corrupción policial</label></label>
-          <label class="opt"><input type="radio" name="a1_atribucion_causal" value="Desintegración familiar"><label>👨‍👩‍👧 Desintegración familiar</label></label>
-          <label class="opt"><input type="radio" name="a1_atribucion_causal" value="Políticas de ajuste"><label>💸 Políticas de ajuste</label></label>
+          <label class="opt"><input type="radio" name="a1_atribucion_causal" value="Leyes penales demasiado blandas y poca presencia policial"><label>📜 Leyes penales blandas</label></label>
+          <label class="opt"><input type="radio" name="a1_atribucion_causal" value="Corrupción dentro del propio sistema de seguridad"><label>🔗 Corrupción policial</label></label>
+          <label class="opt"><input type="radio" name="a1_atribucion_causal" value="Fenómenos culturales y de desintegración familiar"><label>👨‍👩‍👧 Desintegración familiar</label></label>
+          <label class="opt"><input type="radio" name="a1_atribucion_causal" value="Políticas de ajuste que generan marginalidad"><label>💸 Políticas de ajuste</label></label>
+          <label class="opt"><input type="radio" name="a1_atribucion_causal" value="Falta de continuidad en las políticas de seguridad entre gobiernos"><label>🔄 Falta de continuidad en políticas de seguridad</label></label>
         </div>
       </div>
       <div class="nav"><button class="btn btn-back" onclick="back()">←</button><button class="btn btn-main" id="n12" onclick="next()" disabled>Siguiente →</button></div>
     </div>
 
-    <!-- S-13 PELIGRO BARRIO + [A2] -->
+    <!-- S-13 PELIGRO BARRIO + [A2] JUSTICIA PENAL -->
     <div class="step" id="s13">
-      <div class="card"><div class="qlabel">🌙 Peligro en el barrio</div><div class="qtext">¿Qué tan peligroso le parece caminar solo/a por su barrio de noche?</div><div class="sbtns" data-f="peligro_barrio"><button class="sbtn" onclick="sc(this,'peligro_barrio','1')">1</button><button class="sbtn" onclick="sc(this,'peligro_barrio','2')">2</button><button class="sbtn" onclick="sc(this,'peligro_barrio','3')">3</button><button class="sbtn" onclick="sc(this,'peligro_barrio','4')">4</button></div><div class="sends"><span>Nada</span><span>Muy peligroso</span></div></div>
-      <div class="card card-ctrl"><div class="qlabel ctrl">⚖️ Visión de justicia</div><div class="qtext">¿Cuál describe mejor su visión sobre la justicia penal?</div><div class="opts">
-        <label class="opt"><input type="radio" name="a2_justicia_penal" value="Priorizar reinserción"><label>🔄 Priorizar reinserción</label></label>
-        <label class="opt"><input type="radio" name="a2_justicia_penal" value="Penas más duras"><label>⛓️ Penas más duras</label></label>
-        <label class="opt"><input type="radio" name="a2_justicia_penal" value="Atacar causas sociales"><label>🌱 Atacar causas sociales</label></label>
-        <label class="opt"><input type="radio" name="a2_justicia_penal" value="Justicia capturada"><label>🎭 Justicia capturada</label></label>
-        <label class="opt"><input type="radio" name="a2_justicia_penal" value="Orden ante todo"><label>🏛️ Orden ante todo</label></label>
+      <div class="card"><div class="qlabel">🌙 Peligro en el barrio</div><div class="qtext">¿Qué tan peligroso le parece caminar solo/a por su barrio de noche?</div><div class="sbtns" data-f="peligro_barrio"><button class="sbtn" onclick="sc(this,'peligro_barrio','1')">1</button><button class="sbtn" onclick="sc(this,'peligro_barrio','2')">2</button><button class="sbtn" onclick="sc(this,'peligro_barrio','3')">3</button><button class="sbtn" onclick="sc(this,'peligro_barrio','4')">4</button></div><div class="sends"><span>Nada peligroso</span><span>Muy peligroso</span></div></div>
+      <div class="card card-ctrl"><div class="qlabel ctrl">⚖️ Visión sobre la justicia penal</div><div class="qtext">¿Cuál describe mejor su visión sobre la justicia penal?</div><div class="opts">
+        <label class="opt"><input type="radio" name="a2_justicia_penal" value="Funciona bien tal como está"><label>✅ Funciona bien</label></label>
+        <label class="opt"><input type="radio" name="a2_justicia_penal" value="Necesita cambios, pero no sé cuáles"><label>🤔 Necesita cambios</label></label>
+        <label class="opt"><input type="radio" name="a2_justicia_penal" value="Es lenta y poco efectiva"><label>🐢 Es lenta y poco efectiva</label></label>
+        <label class="opt"><input type="radio" name="a2_justicia_penal" value="Debería enfocarse más en castigar"><label>⛓️ Debería enfocarse más en castigar</label></label>
+        <label class="opt"><input type="radio" name="a2_justicia_penal" value="Debería enfocarse más en prevenir"><label>🛡️ Debería enfocarse más en prevenir</label></label>
+        <label class="opt"><input type="radio" name="a2_justicia_penal" value="Debería enfocarse más en reinserción"><label>🔄 Debería enfocarse más en reinserción</label></label>
+        <label class="opt"><input type="radio" name="a2_justicia_penal" value="Actúa según intereses políticos o económicos"><label>🎭 Actúa según intereses políticos o económicos</label></label>
+        <label class="opt"><input type="radio" name="a2_justicia_penal" value="No confío en que funcione para personas como yo"><label>🙈 No confío</label></label>
       </div></div>
       <div class="nav"><button class="btn btn-back" onclick="back()">←</button><button class="btn btn-main" id="n13" onclick="next()" disabled>Siguiente →</button></div>
     </div>
@@ -380,7 +376,7 @@ select{-webkit-appearance:none;background-image:url("data:image/svg+xml,%3Csvg x
       <div class="nav"><button class="btn btn-back" onclick="back()">←</button><button class="btn btn-main" id="n14" onclick="next()" disabled>Siguiente →</button></div>
     </div>
 
-    <!-- S-15 [B1] -->
+    <!-- S-15 [B1] MEMORIA DE SEGURIDAD -->
     <div class="step" id="s15">
       <div class="card card-ctrl">
         <div class="qlabel ctrl">🕰️ Memoria de seguridad</div>
@@ -390,7 +386,7 @@ select{-webkit-appearance:none;background-image:url("data:image/svg+xml,%3Csvg x
           <label class="opt"><input type="radio" name="b1_memoria_seguridad" value="Entre 5 y 8 años atrás"><label>📅 5-8 años</label></label>
           <label class="opt"><input type="radio" name="b1_memoria_seguridad" value="Entre 2 y 5 años atrás"><label>📅 2-5 años</label></label>
           <label class="opt"><input type="radio" name="b1_memoria_seguridad" value="En el último año"><label>📅 Último año</label></label>
-          <label class="opt"><input type="radio" name="b1_memoria_seguridad" value="Nunca percibí diferencia"><label>↔️ Nunca percibí diferencia</label></label>
+          <label class="opt"><input type="radio" name="b1_memoria_seguridad" value="Nunca percibí diferencia significativa"><label>↔️ Nunca percibí diferencia</label></label>
         </div>
       </div>
       <div class="nav"><button class="btn btn-back" onclick="back()">←</button><button class="btn btn-main" id="n15" onclick="next()" disabled>Siguiente →</button></div>
@@ -406,9 +402,9 @@ select{-webkit-appearance:none;background-image:url("data:image/svg+xml,%3Csvg x
       </div>
       <div class="card"><div class="qtext">¿Cuál derecho siente más limitado?</div><div class="opts">
         <label class="opt"><input type="radio" name="derecho_limitado" value="Circular libremente"><label>🚶 Circular libremente</label></label>
-        <label class="opt"><input type="radio" name="derecho_limitado" value="Reunirme con familia o amigos"><label>👨‍👩‍👧 Reunirme sin miedo</label></label>
-        <label class="opt"><input type="radio" name="derecho_limitado" value="Trabajar en ciertos lugares"><label>💼 Trabajar en ciertos lugares</label></label>
-        <label class="opt"><input type="radio" name="derecho_limitado" value="Salir a actividades no imprescindibles"><label>🚶‍♂️ Actividades no imprescindibles</label></label>
+        <label class="opt"><input type="radio" name="derecho_limitado" value="Reunirme con familia o amigos sin miedo"><label>👨‍👩‍👧 Reunirme sin miedo</label></label>
+        <label class="opt"><input type="radio" name="derecho_limitado" value="Trabajar en ciertos horarios o lugares"><label>💼 Trabajar en ciertos lugares</label></label>
+        <label class="opt"><input type="radio" name="derecho_limitado" value="Salir a desarrollar actividades que no sean imprescindibles"><label>🚶‍♂️ Actividades no imprescindibles</label></label>
       </div></div>
       <div class="nav"><button class="btn btn-back" onclick="back()">←</button><button class="btn btn-main" id="n16" onclick="next()" disabled>Siguiente →</button></div>
     </div>
@@ -423,82 +419,92 @@ select{-webkit-appearance:none;background-image:url("data:image/svg+xml,%3Csvg x
       <div class="nav"><button class="btn btn-back" onclick="back()">←</button><button class="btn btn-main" id="n17" onclick="next()" disabled>Siguiente →</button></div>
     </div>
 
-    <!-- S-18 BLOQUE A (experiencia) -->
+    <!-- S-18 BLOQUE A (experiencia directa) -->
     <div class="step" id="s18">
       <div class="card">
         <div class="qlabel">📢 Su experiencia</div>
         <div class="qtext">Pensando en su participación en marchas o protestas...</div>
-        <div class="sq"><div class="sq-lbl">¿Sentiste que te trataron distinto por manifestar?</div><div class="sbtns5" data-f="protesta_trato_distinto"><button class="sbtn5" onclick="sc5(this,'protesta_trato_distinto','1')">1</button><button class="sbtn5" onclick="sc5(this,'protesta_trato_distinto','2')">2</button><button class="sbtn5" onclick="sc5(this,'protesta_trato_distinto','3')">3</button><button class="sbtn5" onclick="sc5(this,'protesta_trato_distinto','4')">4</button><button class="sbtn5" onclick="sc5(this,'protesta_trato_distinto','5')">5</button></div><div class="sends5"><span>Nunca</span><span></span><span></span><span></span><span>Siempre</span></div></div>
-        <div class="sq"><div class="sq-lbl">¿Te impidieron/demoraron al circular cerca?</div><div class="sbtns5" data-f="protesta_circulacion"><button class="sbtn5" onclick="sc5(this,'protesta_circulacion','1')">1</button><button class="sbtn5" onclick="sc5(this,'protesta_circulacion','2')">2</button><button class="sbtn5" onclick="sc5(this,'protesta_circulacion','3')">3</button><button class="sbtn5" onclick="sc5(this,'protesta_circulacion','4')">4</button><button class="sbtn5" onclick="sc5(this,'protesta_circulacion','5')">5</button></div><div class="sends5"><span>Nunca</span><span></span><span></span><span></span><span>Siempre</span></div></div>
-        <div class="sq"><div class="sq-lbl">¿Recibiste frases como "disturbio", "vago", "peligroso"?</div><div class="sbtns5" data-f="protesta_etiquetas"><button class="sbtn5" onclick="sc5(this,'protesta_etiquetas','1')">1</button><button class="sbtn5" onclick="sc5(this,'protesta_etiquetas','2')">2</button><button class="sbtn5" onclick="sc5(this,'protesta_etiquetas','3')">3</button><button class="sbtn5" onclick="sc5(this,'protesta_etiquetas','4')">4</button><button class="sbtn5" onclick="sc5(this,'protesta_etiquetas','5')">5</button></div><div class="sends5"><span>Nunca</span><span></span><span></span><span></span><span>Siempre</span></div></div>
-        <div class="sq"><div class="sq-lbl">¿Viste o sufriste gases, balas de goma o golpes?</div><div class="sbtns5" data-f="protesta_fuerza_fisica"><button class="sbtn5" onclick="sc5(this,'protesta_fuerza_fisica','1')">1</button><button class="sbtn5" onclick="sc5(this,'protesta_fuerza_fisica','2')">2</button><button class="sbtn5" onclick="sc5(this,'protesta_fuerza_fisica','3')">3</button><button class="sbtn5" onclick="sc5(this,'protesta_fuerza_fisica','4')">4</button><button class="sbtn5" onclick="sc5(this,'protesta_fuerza_fisica','5')">5</button></div><div class="sends5"><span>Nunca</span><span></span><span></span><span></span><span>Siempre</span></div></div>
-        <div class="sq"><div class="sq-lbl">¿Te sentiste más seguro o inseguro por la presencia policial?</div><div class="sbtns5" data-f="protesta_seguridad_policial"><button class="sbtn5" onclick="sc5(this,'protesta_seguridad_policial','1')">1</button><button class="sbtn5" onclick="sc5(this,'protesta_seguridad_policial','2')">2</button><button class="sbtn5" onclick="sc5(this,'protesta_seguridad_policial','3')">3</button><button class="sbtn5" onclick="sc5(this,'protesta_seguridad_policial','4')">4</button><button class="sbtn5" onclick="sc5(this,'protesta_seguridad_policial','5')">5</button></div><div class="sends5"><span>Más inseguro</span><span></span><span></span><span></span><span>Más seguro</span></div></div>
+        <div class="sq"><div class="sq-lbl">¿Sentiste que te trataron distinto por manifestar?</div><div class="sbtns" data-f="protesta_trato_distinto"><button class="sbtn" onclick="sc(this,'protesta_trato_distinto','1')">1</button><button class="sbtn" onclick="sc(this,'protesta_trato_distinto','2')">2</button><button class="sbtn" onclick="sc(this,'protesta_trato_distinto','3')">3</button><button class="sbtn" onclick="sc(this,'protesta_trato_distinto','4')">4</button><button class="sbtn" onclick="sc(this,'protesta_trato_distinto','5')">5</button></div><div class="sends"><span>Nunca</span><span>Siempre</span></div></div>
+        <div class="sq"><div class="sq-lbl">¿Te impidieron/demoraron al circular cerca?</div><div class="sbtns" data-f="protesta_circulacion"><button class="sbtn" onclick="sc(this,'protesta_circulacion','1')">1</button><button class="sbtn" onclick="sc(this,'protesta_circulacion','2')">2</button><button class="sbtn" onclick="sc(this,'protesta_circulacion','3')">3</button><button class="sbtn" onclick="sc(this,'protesta_circulacion','4')">4</button><button class="sbtn" onclick="sc(this,'protesta_circulacion','5')">5</button></div><div class="sends"><span>Nunca</span><span>Siempre</span></div></div>
+        <div class="sq"><div class="sq-lbl">¿Recibiste frases como "disturbio", "vago", "peligroso"?</div><div class="sbtns" data-f="protesta_etiquetas"><button class="sbtn" onclick="sc(this,'protesta_etiquetas','1')">1</button><button class="sbtn" onclick="sc(this,'protesta_etiquetas','2')">2</button><button class="sbtn" onclick="sc(this,'protesta_etiquetas','3')">3</button><button class="sbtn" onclick="sc(this,'protesta_etiquetas','4')">4</button><button class="sbtn" onclick="sc(this,'protesta_etiquetas','5')">5</button></div><div class="sends"><span>Nunca</span><span>Siempre</span></div></div>
+        <div class="sq"><div class="sq-lbl">¿Viste o sufriste gases, balas de goma o golpes?</div><div class="sbtns" data-f="protesta_fuerza_fisica"><button class="sbtn" onclick="sc(this,'protesta_fuerza_fisica','1')">1</button><button class="sbtn" onclick="sc(this,'protesta_fuerza_fisica','2')">2</button><button class="sbtn" onclick="sc(this,'protesta_fuerza_fisica','3')">3</button><button class="sbtn" onclick="sc(this,'protesta_fuerza_fisica','4')">4</button><button class="sbtn" onclick="sc(this,'protesta_fuerza_fisica','5')">5</button></div><div class="sends"><span>Nunca</span><span>Siempre</span></div></div>
+        <div class="sq"><div class="sq-lbl">¿Te sentiste más seguro o inseguro por la presencia policial?</div><div class="sbtns" data-f="protesta_seguridad_policial"><button class="sbtn" onclick="sc(this,'protesta_seguridad_policial','1')">1</button><button class="sbtn" onclick="sc(this,'protesta_seguridad_policial','2')">2</button><button class="sbtn" onclick="sc(this,'protesta_seguridad_policial','3')">3</button><button class="sbtn" onclick="sc(this,'protesta_seguridad_policial','4')">4</button><button class="sbtn" onclick="sc(this,'protesta_seguridad_policial','5')">5</button></div><div class="sends"><span>Más inseguro</span><span>Más seguro</span></div></div>
         <div class="sq"><div class="sq-lbl">¿Qué te hubiera hecho sentir más respetado?</div><textarea id="protesta_sugerencia" rows="2" placeholder="Opcional..."></textarea></div>
       </div>
       <div class="nav"><button class="btn btn-back" onclick="back()">←</button><button class="btn btn-main" id="n18" onclick="next()" disabled>Siguiente →</button></div>
     </div>
 
-    <!-- S-19 BLOQUE B (opinión) -->
+    <!-- S-19 BLOQUE B (opinión general) -->
     <div class="step" id="s19">
       <div class="card">
         <div class="qlabel">💭 Su opinión</div>
-        <div class="qtext">Indique su grado de acuerdo con estas afirmaciones:</div>
-        <div class="sq"><div class="sq-lbl">"Si una protesta molesta, es válido que la policía use gases y golpes"</div><div class="sbtns5" data-f="protesta_opinion_represion"><button class="sbtn5" onclick="sc5(this,'protesta_opinion_represion','1')">1</button><button class="sbtn5" onclick="sc5(this,'protesta_opinion_represion','2')">2</button><button class="sbtn5" onclick="sc5(this,'protesta_opinion_represion','3')">3</button><button class="sbtn5" onclick="sc5(this,'protesta_opinion_represion','4')">4</button><button class="sbtn5" onclick="sc5(this,'protesta_opinion_represion','5')">5</button></div><div class="sends5"><span>Desacuerdo</span><span></span><span></span><span></span><span>Acuerdo</span></div></div>
-        <div class="sq"><div class="sq-lbl">"El Estado debería prohibir marchas sin permiso previo"</div><div class="sbtns5" data-f="protesta_opinion_prohibicion"><button class="sbtn5" onclick="sc5(this,'protesta_opinion_prohibicion','1')">1</button><button class="sbtn5" onclick="sc5(this,'protesta_opinion_prohibicion','2')">2</button><button class="sbtn5" onclick="sc5(this,'protesta_opinion_prohibicion','3')">3</button><button class="sbtn5" onclick="sc5(this,'protesta_opinion_prohibicion','4')">4</button><button class="sbtn5" onclick="sc5(this,'protesta_opinion_prohibicion','5')">5</button></div><div class="sends5"><span>Desacuerdo</span><span></span><span></span><span></span><span>Acuerdo</span></div></div>
-        <div class="sq"><div class="sq-lbl">"Quien va a una protesta 'se lo busca' si termina lastimado"</div><div class="sbtns5" data-f="protesta_opinion_culpa"><button class="sbtn5" onclick="sc5(this,'protesta_opinion_culpa','1')">1</button><button class="sbtn5" onclick="sc5(this,'protesta_opinion_culpa','2')">2</button><button class="sbtn5" onclick="sc5(this,'protesta_opinion_culpa','3')">3</button><button class="sbtn5" onclick="sc5(this,'protesta_opinion_culpa','4')">4</button><button class="sbtn5" onclick="sc5(this,'protesta_opinion_culpa','5')">5</button></div><div class="sends5"><span>Desacuerdo</span><span></span><span></span><span></span><span>Acuerdo</span></div></div>
-        <div class="sq"><div class="sq-lbl">"Es mejor diálogo aunque la protesta dure horas, antes que reprimir"</div><div class="sbtns5" data-f="protesta_opinion_dialogo"><button class="sbtn5" onclick="sc5(this,'protesta_opinion_dialogo','1')">1</button><button class="sbtn5" onclick="sc5(this,'protesta_opinion_dialogo','2')">2</button><button class="sbtn5" onclick="sc5(this,'protesta_opinion_dialogo','3')">3</button><button class="sbtn5" onclick="sc5(this,'protesta_opinion_dialogo','4')">4</button><button class="sbtn5" onclick="sc5(this,'protesta_opinion_dialogo','5')">5</button></div><div class="sends5"><span>Desacuerdo</span><span></span><span></span><span></span><span>Acuerdo</span></div></div>
-        <div class="sq"><div class="sq-lbl">¿Qué debería hacer el Estado ante protestas que generan molestias?</div><textarea id="protesta_opinion_abierta" rows="2" placeholder="Opcional..."></textarea></div>
+        <div class="qtext">Indique su grado de acuerdo con estas afirmaciones (1=Totalmente en desacuerdo, 5=Totalmente de acuerdo)</div>
+        <div class="sq"><div class="sq-lbl">"Si una protesta molesta, es válido que la policía use gases y golpes para dispersarla"</div><div class="sbtns" data-f="protesta_opinion_represion"><button class="sbtn" onclick="sc(this,'protesta_opinion_represion','1')">1</button><button class="sbtn" onclick="sc(this,'protesta_opinion_represion','2')">2</button><button class="sbtn" onclick="sc(this,'protesta_opinion_represion','3')">3</button><button class="sbtn" onclick="sc(this,'protesta_opinion_represion','4')">4</button><button class="sbtn" onclick="sc(this,'protesta_opinion_represion','5')">5</button></div></div>
+        <div class="sq"><div class="sq-lbl">"El Estado debería poder prohibir cualquier marcha que no tenga permiso previo"</div><div class="sbtns" data-f="protesta_opinion_prohibicion"><button class="sbtn" onclick="sc(this,'protesta_opinion_prohibicion','1')">1</button><button class="sbtn" onclick="sc(this,'protesta_opinion_prohibicion','2')">2</button><button class="sbtn" onclick="sc(this,'protesta_opinion_prohibicion','3')">3</button><button class="sbtn" onclick="sc(this,'protesta_opinion_prohibicion','4')">4</button><button class="sbtn" onclick="sc(this,'protesta_opinion_prohibicion','5')">5</button></div></div>
+        <div class="sq"><div class="sq-lbl">"Una persona que va a una protesta 'se lo busca' si termina lastimada"</div><div class="sbtns" data-f="protesta_opinion_culpa"><button class="sbtn" onclick="sc(this,'protesta_opinion_culpa','1')">1</button><button class="sbtn" onclick="sc(this,'protesta_opinion_culpa','2')">2</button><button class="sbtn" onclick="sc(this,'protesta_opinion_culpa','3')">3</button><button class="sbtn" onclick="sc(this,'protesta_opinion_culpa','4')">4</button><button class="sbtn" onclick="sc(this,'protesta_opinion_culpa','5')">5</button></div></div>
+        <div class="sq"><div class="sq-lbl">"Es mejor que haya demoras y diálogo, aunque la protesta dure horas, antes que reprimir"</div><div class="sbtns" data-f="protesta_opinion_dialogo"><button class="sbtn" onclick="sc(this,'protesta_opinion_dialogo','1')">1</button><button class="sbtn" onclick="sc(this,'protesta_opinion_dialogo','2')">2</button><button class="sbtn" onclick="sc(this,'protesta_opinion_dialogo','3')">3</button><button class="sbtn" onclick="sc(this,'protesta_opinion_dialogo','4')">4</button><button class="sbtn" onclick="sc(this,'protesta_opinion_dialogo','5')">5</button></div></div>
+        <div class="sq"><div class="sq-lbl">¿Qué creés que debería hacer el Estado ante protestas que generan molestias?</div><textarea id="protesta_opinion_abierta" rows="2" placeholder="Opcional..."></textarea></div>
       </div>
       <div class="nav"><button class="btn btn-back" onclick="back()">←</button><button class="btn btn-main" id="n19" onclick="next()" disabled>Siguiente →</button></div>
     </div>
 
-    <!-- S-20 SENSACIONES CORPORALES -->
+    <!-- S-20 SENSACIONES CORPORALES + OLFATO -->
     <div class="step" id="s20">
       <div class="card">
         <div class="qlabel">🌙 Sensaciones físicas</div>
         <div class="qtext">Cuando imagina volver a casa de noche, ¿qué sensación predomina?</div>
         <div class="opts">
           <label class="opt"><input type="checkbox" name="sens_corp" value="Opresión en el pecho"><label>😮‍💨 Opresión en el pecho</label></label>
-          <label class="opt"><input type="checkbox" name="sens_corp" value="Mirar hacia atrás"><label>👀 Mirar hacia atrás</label></label>
-          <label class="opt"><input type="checkbox" name="sens_corp" value="Hombros tensos"><label>🫁 Hombros tensos</label></label>
-          <label class="opt"><input type="checkbox" name="sens_corp" value="Caminar muy rápido"><label>🏃 Caminar muy rápido</label></label>
-          <label class="opt"><input type="checkbox" name="sens_corp" value="Manos sudorosas"><label>🤲 Manos sudorosas</label></label>
-          <label class="opt"><input type="checkbox" name="sens_corp" value="Sensación de ser observado"><label>👁️ Ser observado</label></label>
-          <label class="opt"><input type="checkbox" name="sens_corp" value="Ninguna, tranquilo"><label>😌 Ninguna, tranquilo</label></label>
+          <label class="opt"><input type="checkbox" name="sens_corp" value="Necesidad de mirar hacia atrás"><label>👀 Mirar hacia atrás</label></label>
+          <label class="opt"><input type="checkbox" name="sens_corp" value="Hombros y cuello tensos"><label>🫁 Hombros tensos</label></label>
+          <label class="opt"><input type="checkbox" name="sens_corp" value="Ganas de caminar muy rápido"><label>🏃 Caminar rápido</label></label>
+          <label class="opt"><input type="checkbox" name="sens_corp" value="Manos sudorosas o agarrando fuerte"><label>🤲 Manos sudorosas</label></label>
+          <label class="opt"><input type="checkbox" name="sens_corp" value="Sensación de que alguien me observa"><label>👁️ Ser observado</label></label>
+          <label class="opt"><input type="checkbox" name="sens_corp" value="Ninguna, me siento tranquilo/a"><label>😌 Ninguna, tranquilo</label></label>
         </div>
         <div style="margin-top:20px;padding:14px;background:rgba(230,168,23,0.10);border:2px dashed #c87000;border-radius:10px">
-          <p style="font-size:13px;font-weight:700;color:#c87000">👃 ¿Qué olor asocia con inseguridad?</p>
-          <input type="text" id="olfato_asociacion" placeholder="Ej: humedad, alcohol, diesel..." style="width:100%;margin-top:8px;padding:8px;border:1.5px solid #c87000;border-radius:6px">
+          <p style="font-size:13px;font-weight:700;color:#c87000">👃 ¿Qué olor asocia con inseguridad? <span style="font-weight:400;color:#999;font-size:12px">(opcional)</span></p>
+          <p style="font-size:12px;color:#888;margin-bottom:8px">Ej: humedad, alcohol, diesel, basura, tierra, comida...</p>
+          <input type="text" id="olfato_asociacion" placeholder="Escriba aquí..." style="width:100%;margin-top:8px;padding:8px;border:1.5px solid #c87000;border-radius:6px">
         </div>
       </div>
       <div class="nav"><button class="btn btn-back" onclick="back()">←</button><button class="btn btn-main" id="n20" onclick="next()" disabled>Siguiente →</button></div>
     </div>
 
-    <!-- S-21 [C1] -->
+    <!-- S-21 [C1] MEDIDA CONCRETA -->
     <div class="step" id="s21">
-      <div class="card card-ctrl"><div class="qlabel ctrl">🛡️ Política de seguridad</div><div class="qtext">Si pudiera elegir UNA medida concreta para sentirse más seguro/a, ¿cuál elegiría?</div><div class="opts">
-        <label class="opt"><input type="radio" name="c1_medida_concreta" value="Más policías con más poder"><label>👮 Más policías con más poder</label></label>
-        <label class="opt"><input type="radio" name="c1_medida_concreta" value="Mejores condiciones para jóvenes"><label>🎓 Mejores condiciones para jóvenes</label></label>
-        <label class="opt"><input type="radio" name="c1_medida_concreta" value="Jueces honestos con control popular"><label>⚖️ Jueces honestos</label></label>
-        <label class="opt"><input type="radio" name="c1_medida_concreta" value="Fiscales comprometidos"><label>🏛️ Fiscales comprometidos</label></label>
-        <label class="opt"><input type="radio" name="c1_medida_concreta" value="Bajar consumo de drogas"><label>💊 Bajar consumo de drogas</label></label>
-      </div></div>
+      <div class="card card-ctrl">
+        <div class="qlabel ctrl">🛡️ Política de seguridad</div>
+        <div class="qtext">Si pudiera elegir UNA medida concreta para sentirse más seguro/a, ¿cuál elegiría?</div>
+        <div class="opts">
+          <label class="opt"><input type="radio" name="c1_medida_concreta" value="Aumentar la cantidad de policías y su capacidad de acción en la calle"><label>👮 Aumentar policías y su capacidad de acción</label></label>
+          <label class="opt"><input type="radio" name="c1_medida_concreta" value="Mejorar las condiciones educativas y laborales"><label>🎓 Mejorar educación y trabajo</label></label>
+          <label class="opt"><input type="radio" name="c1_medida_concreta" value="Garantizar que los jueces actúen sin presiones ni compromisos externos"><label>⚖️ Jueces sin presiones externas</label></label>
+          <label class="opt"><input type="radio" name="c1_medida_concreta" value="Asegurar que los fiscales conozcan y prioricen los intereses de la comunidad"><label>🏛️ Fiscales comprometidos con la comunidad</label></label>
+          <label class="opt"><input type="radio" name="c1_medida_concreta" value="Reducir el consumo de drogas que financia el crimen organizado"><label>💊 Reducir consumo de drogas</label></label>
+          <label class="opt"><input type="radio" name="c1_medida_concreta" value="Perseguir e incautar bienes obtenidos del narcotráfico"><label>💰 Incautar bienes del narcotráfico</label></label>
+        </div>
+      </div>
       <div class="nav"><button class="btn btn-back" onclick="back()">←</button><button class="btn btn-main" id="n21" onclick="next()" disabled>Siguiente →</button></div>
     </div>
 
-    <!-- S-22 [B2] -->
+    <!-- S-22 [B2] ORIGEN DEL PROBLEMA -->
     <div class="step" id="s22">
-      <div class="card card-ctrl"><div class="qlabel ctrl">🔍 Origen del problema</div><div class="qtext">¿Cuál afirmación le parece más cercana a la realidad?</div><div class="opts">
-        <label class="opt"><input type="radio" name="b2_origen_problema" value="Estado abandonó los barrios"><label>🏚️ Estado abandonó los barrios</label></label>
-        <label class="opt"><input type="radio" name="b2_origen_problema" value="Liberaron gente peligrosa"><label>🔓 Liberaron gente peligrosa</label></label>
-        <label class="opt"><input type="radio" name="b2_origen_problema" value="Corrupción policial"><label>🔗 Corrupción policial</label></label>
-        <label class="opt"><input type="radio" name="b2_origen_problema" value="Problemas importados"><label>🌍 Problemas importados</label></label>
-        <label class="opt"><input type="radio" name="b2_origen_problema" value="Décadas de malas políticas"><label>📉 Décadas de malas políticas</label></label>
-      </div></div>
+      <div class="card card-ctrl">
+        <div class="qlabel ctrl">🔍 Origen del problema</div>
+        <div class="qtext">¿Cuál de estas afirmaciones le parece más cercana a la realidad?</div>
+        <div class="opts">
+          <label class="opt"><input type="radio" name="b2_origen_problema" value="La inseguridad creció porque el Estado abandonó los barrios populares"><label>🏚️ Estado abandonó los barrios</label></label>
+          <label class="opt"><input type="radio" name="b2_origen_problema" value="La inseguridad creció porque se liberó gente peligrosa de las cárceles"><label>🔓 Liberaron gente peligrosa</label></label>
+          <label class="opt"><input type="radio" name="b2_origen_problema" value="La inseguridad creció porque la corrupción policial nunca se resolvió"><label>🔗 Corrupción policial</label></label>
+          <label class="opt"><input type="radio" name="b2_origen_problema" value="La inseguridad creció porque se importaron problemas de países vecinos"><label>🌍 Problemas importados</label></label>
+          <label class="opt"><input type="radio" name="b2_origen_problema" value="La inseguridad creció por décadas de malas políticas de todos los partidos"><label>📉 Décadas de malas políticas</label></label>
+        </div>
+      </div>
       <div class="nav"><button class="btn btn-back" onclick="back()">←</button><button class="btn btn-main" id="n22" onclick="next()" disabled>Siguiente →</button></div>
     </div>
 
-    <!-- S-23 PESADILLAS + [C2] -->
+    <!-- S-23 PESADILLAS + [C2] MANO DURA -->
     <div class="step" id="s23">
       <div class="card"><div class="qlabel">😴 Impacto emocional</div><div class="qtext">En el último mes, ¿ha tenido pesadillas con persecuciones, robos o ataques?</div><div class="opts">
         <label class="opt"><input type="radio" name="pesadillas_frecuencia" value="Nunca"><label>😴 Nunca</label></label>
@@ -507,18 +513,18 @@ select{-webkit-appearance:none;background-image:url("data:image/svg+xml,%3Csvg x
         <label class="opt"><input type="radio" name="pesadillas_frecuencia" value="Más de 3 veces"><label>😱 Más de 3 veces</label></label>
       </div></div>
       <div class="card card-ctrl"><div class="qlabel ctrl">💬 Reacción a "mano dura"</div><div class="qtext">Cuando escucha "mano dura", ¿qué siente?</div><div class="opts">
-        <label class="opt"><input type="radio" name="c2_mano_dura" value="Alivio — es lo que hace falta"><label>😮‍💨 Alivio</label></label>
-        <label class="opt"><input type="radio" name="c2_mano_dura" value="Desconfianza — termina en abusos"><label>🤨 Desconfianza</label></label>
-        <label class="opt"><input type="radio" name="c2_mano_dura" value="Indiferencia"><label>😑 Indiferencia</label></label>
-        <label class="opt"><input type="radio" name="c2_mano_dura" value="Esperanza condicionada"><label>🤞 Esperanza condicionada</label></label>
-        <label class="opt"><input type="radio" name="c2_mano_dura" value="Rechazo — criminaliza pobreza"><label>🚫 Rechazo</label></label>
+        <label class="opt"><input type="radio" name="c2_mano_dura" value="Alivio — creo que es lo que hace falta"><label>😮‍💨 Alivio — es lo que hace falta</label></label>
+        <label class="opt"><input type="radio" name="c2_mano_dura" value="Desconfianza — creo que suele terminar en abusos"><label>🤨 Desconfianza — suele terminar en abusos</label></label>
+        <label class="opt"><input type="radio" name="c2_mano_dura" value="Indiferencia — no creo que cambie nada"><label>😑 Indiferencia — no creo que cambie nada</label></label>
+        <label class="opt"><input type="radio" name="c2_mano_dura" value="Esperanza condicionada — depende de quién la aplique"><label>🤞 Esperanza condicionada</label></label>
+        <label class="opt"><input type="radio" name="c2_mano_dura" value="Rechazo — creo que criminaliza la pobreza"><label>🚫 Rechazo — criminaliza la pobreza</label></label>
       </div></div>
       <div class="nav"><button class="btn btn-back" onclick="back()">←</button><button class="btn btn-main" id="n23" onclick="next()" disabled>Siguiente →</button></div>
     </div>
 
     <!-- S-24 GROUNDING -->
     <div class="step" id="s24">
-      <div class="card"><div class="qlabel">🌿 Un momento de calma</div><div class="qtext">Describa un lugar, olor, sonido o sensación que le transmita seguridad absoluta.</div><textarea id="grounding_seguridad" rows="3" placeholder="Ej: el sonido de la lluvia, el aroma a jazmín..."></textarea></div>
+      <div class="card"><div class="qlabel">🌿 Un momento de calma</div><div class="qtext">Describa un lugar, olor, sonido o sensación que le transmita seguridad absoluta.</div><textarea id="grounding_seguridad" rows="3" placeholder="Ej: el sonido de la lluvia, el aroma a jazmín, la cocina de mi casa..."></textarea></div>
       <div class="nav"><button class="btn btn-back" onclick="back()">←</button><button class="btn btn-main" id="n24" onclick="next()">Siguiente →</button></div>
     </div>
 
@@ -532,13 +538,13 @@ select{-webkit-appearance:none;background-image:url("data:image/svg+xml,%3Csvg x
         <label class="opt"><input type="checkbox" name="medidas_seg" value="Alarma"><label>🔔 Alarma</label></label>
         <label class="opt"><input type="checkbox" name="medidas_seg" value="Cerco de concertina"><label>🌀 Cerco de concertina</label></label>
         <label class="opt"><input type="checkbox" name="medidas_seg" value="Cerco electrónico"><label>⚡ Cerco electrónico</label></label>
-        <label class="opt"><input type="checkbox" name="medidas_seg" value="Cámaras"><label>📷 Cámaras</label></label>
+        <label class="opt"><input type="checkbox" name="medidas_seg" value="Cámaras de vigilancia"><label>📷 Cámaras</label></label>
         <label class="opt"><input type="checkbox" id="cb-med-otro" name="medidas_seg" value="Otro" onchange="toggleMedOtro()"><label>➕ Otro</label></label>
         <div id="blk-med-otro" style="display:none;margin-top:8px"><input type="text" id="medidas_seguridad_otro" placeholder="Especifique..."></div>
       </div></div>
       <div class="card" id="blk-inv-no" style="display:none"><div class="qlabel">💭 Motivo</div><div class="opts">
         <label class="opt"><input type="radio" name="razon_no_invirtio" value="No lo considera necesario"><label>🤷 No necesario</label></label>
-        <label class="opt"><input type="radio" name="razon_no_invirtio" value="No mejoraría la situación"><label>🔄 No mejoraría</label></label>
+        <label class="opt"><input type="radio" name="razon_no_invirtio" value="No mejoraría la situación actual"><label>🔄 No mejoraría</label></label>
         <label class="opt"><input type="radio" name="razon_no_invirtio" value="No lo puedo pagar"><label>💸 No puedo pagarlo</label></label>
         <label class="opt"><input type="radio" name="razon_no_invirtio" value="Otro"><label>➕ Otro</label></label>
       </div></div>
@@ -571,28 +577,28 @@ select{-webkit-appearance:none;background-image:url("data:image/svg+xml,%3Csvg x
       <div class="nav"><button class="btn btn-back" onclick="back()">←</button><button class="btn btn-main" id="n26" onclick="next()" disabled>Siguiente →</button></div>
     </div>
 
-    <!-- S-27 [D1] -->
+    <!-- S-27 [D1] FUENTE DE INFORMACIÓN + INTERÉS POLÍTICA -->
     <div class="step" id="s27">
-      <div class="card card-ctrl"><div class="qlabel ctrl">📰 Fuente de información</div><div class="qtext">¿De dónde obtiene información sobre inseguridad?</div><div class="opts">
+      <div class="card card-ctrl"><div class="qlabel ctrl">📰 Fuente de información</div><div class="qtext">¿De dónde obtiene principalmente información sobre inseguridad?</div><div class="opts">
         <label class="opt"><input type="radio" name="d1_fuente_informacion" value="Portales: MDZ, Los Andes, Mendoza Post"><label>🖥️ Portales mendocinos</label></label>
         <label class="opt"><input type="radio" name="d1_fuente_informacion" value="Redes sociales (Twitter/X, Facebook, TikTok)"><label>📱 Redes sociales</label></label>
         <label class="opt"><input type="radio" name="d1_fuente_informacion" value="TV local"><label>📺 TV local</label></label>
         <label class="opt"><input type="radio" name="d1_fuente_informacion" value="TV nacional"><label>📺 TV nacional</label></label>
         <label class="opt"><input type="radio" name="d1_fuente_informacion" value="Radio"><label>📻 Radio</label></label>
-        <label class="opt"><input type="radio" name="d1_fuente_informacion" value="WhatsApp"><label>💬 WhatsApp</label></label>
-        <label class="opt"><input type="radio" name="d1_fuente_informacion" value="No consumo"><label>🚫 No consumo</label></label>
+        <label class="opt"><input type="radio" name="d1_fuente_informacion" value="WhatsApp barrio o familia"><label>💬 WhatsApp</label></label>
+        <label class="opt"><input type="radio" name="d1_fuente_informacion" value="No consumo noticias sobre inseguridad"><label>🚫 No consumo</label></label>
       </div></div>
-      <div class="card"><div class="qtext">🗳️ ¿Cuánto interés tiene en política?</div><div class="sbtns" data-f="interes_politica" style="max-width:300px"><button class="sbtn" onclick="sc(this,'interes_politica','1')">1</button><button class="sbtn" onclick="sc(this,'interes_politica','2')">2</button><button class="sbtn" onclick="sc(this,'interes_politica','3')">3</button><button class="sbtn" onclick="sc(this,'interes_politica','4')">4</button><button class="sbtn" onclick="sc(this,'interes_politica','5')">5</button></div><div class="sends"><span>Ninguno</span><span>Mucho</span></div></div>
+      <div class="card"><div class="qtext">🗳️ ¿Cuánto interés tiene en política? (1=Ninguno, 5=Mucho)</div><div class="sbtns" data-f="interes_politica" style="max-width:300px"><button class="sbtn" onclick="sc(this,'interes_politica','1')">1</button><button class="sbtn" onclick="sc(this,'interes_politica','2')">2</button><button class="sbtn" onclick="sc(this,'interes_politica','3')">3</button><button class="sbtn" onclick="sc(this,'interes_politica','4')">4</button><button class="sbtn" onclick="sc(this,'interes_politica','5')">5</button></div><div class="sends"><span>Ninguno</span><span>Mucho</span></div></div>
       <div class="nav"><button class="btn btn-back" onclick="back()">←</button><button class="btn btn-main" id="n27" onclick="next()" disabled>Siguiente →</button></div>
     </div>
 
     <!-- S-28 IDENTIFICACIÓN PARTIDARIA -->
     <div class="step" id="s28">
       <div class="card"><div class="qlabel">🗳️ Identidad política</div><div class="qtext">¿Con qué partido o espacio político se identifica más?</div><div class="opts">
-        <label class="opt"><input type="radio" name="identificacion_partidaria" value="Partido Justicialista (PJ)"><label>🔵 PJ</label></label>
-        <label class="opt"><input type="radio" name="identificacion_partidaria" value="Unión Cívica Radical (UCR)"><label>🔴 UCR</label></label>
-        <label class="opt"><input type="radio" name="identificacion_partidaria" value="La Libertad Avanza (LLA)"><label>🟣 LLA</label></label>
-        <label class="opt"><input type="radio" name="identificacion_partidaria" value="Frente de Izquierda (FIT)"><label>🟠 FIT</label></label>
+        <label class="opt"><input type="radio" name="identificacion_partidaria" value="Partido Justicialista (PJ)"><label>🔵 Partido Justicialista (PJ)</label></label>
+        <label class="opt"><input type="radio" name="identificacion_partidaria" value="Unión Cívica Radical (UCR)"><label>🔴 Unión Cívica Radical (UCR)</label></label>
+        <label class="opt"><input type="radio" name="identificacion_partidaria" value="La Libertad Avanza (LLA)"><label>🟣 La Libertad Avanza (LLA)</label></label>
+        <label class="opt"><input type="radio" name="identificacion_partidaria" value="Frente de Izquierda (FIT)"><label>🟠 Frente de Izquierda (FIT)</label></label>
         <label class="opt"><input type="radio" name="identificacion_partidaria" value="Otro"><label>➕ Otro</label></label>
         <label class="opt"><input type="radio" name="identificacion_partidaria" value="Ninguno"><label>⬜ Ninguno</label></label>
         <label class="opt"><input type="radio" name="identificacion_partidaria" value="Prefiero no decir"><label>🤐 Prefiero no decir</label></label>
@@ -600,9 +606,9 @@ select{-webkit-appearance:none;background-image:url("data:image/svg+xml,%3Csvg x
       <div class="nav"><button class="btn btn-back" onclick="back()">←</button><button class="btn btn-main" id="n28" onclick="next()" disabled>Siguiente →</button></div>
     </div>
 
-    <!-- S-29 [D2] + ENVÍO -->
+    <!-- S-29 [D2] AUTOCONCIENCIA DE SESGO + ENVÍO -->
     <div class="step" id="s29">
-      <div class="card card-ctrl"><div class="qlabel ctrl">🎯 Última pregunta</div><div class="qtext">¿Cuánto cree que sus opiniones sobre seguridad están influidas por el partido al que vota?</div><div class="sbtns" data-f="d2_locus_control" style="max-width:280px"><button class="sbtn" onclick="sc(this,'d2_locus_control','1')">1</button><button class="sbtn" onclick="sc(this,'d2_locus_control','2')">2</button><button class="sbtn" onclick="sc(this,'d2_locus_control','3')">3</button><button class="sbtn" onclick="sc(this,'d2_locus_control','4')">4</button></div><div class="sends"><span>Nada, soy independiente</span><span>Mucho</span></div></div>
+      <div class="card card-ctrl"><div class="qlabel ctrl">🎯 Última pregunta</div><div class="qtext">¿Cuánto cree que sus opiniones sobre seguridad están influidas por el partido al que vota?</div><div class="sbtns" data-f="d2_locus_control" style="max-width:280px"><button class="sbtn" onclick="sc(this,'d2_locus_control','1')">1</button><button class="sbtn" onclick="sc(this,'d2_locus_control','2')">2</button><button class="sbtn" onclick="sc(this,'d2_locus_control','3')">3</button><button class="sbtn" onclick="sc(this,'d2_locus_control','4')">4</button></div><div class="sends"><span>Nada, soy independiente</span><span>Mucho, lo reconozco</span></div></div>
       <div class="card" style="padding:18px;text-align:center"><div class="errbox" id="errbox"></div><button class="btn btn-main" id="btn-sub" onclick="submitForm()" style="width:100%" disabled><div class="spin" id="spinner"></div><span class="btnlbl">Enviar respuestas 🚀</span></button></div>
       <div class="nav"><button class="btn btn-back" onclick="back()">←</button></div>
     </div>
@@ -614,13 +620,25 @@ select{-webkit-appearance:none;background-image:url("data:image/svg+xml,%3Csvg x
 </div>
 
 <script>
-// CONTROL DE RESPUESTA ÚNICA
+// CONTROL DE RESPUESTA ÚNICA (con botón de reinicio)
 (function() {
+  const urlParams = new URLSearchParams(window.location.search);
+  if (urlParams.get('reset') === 'true') {
+    localStorage.removeItem('encuesta_snk_completada');
+    window.history.replaceState({}, document.title, window.location.pathname);
+  }
+  
   if (localStorage.getItem('encuesta_snk_completada') === '1') {
     document.addEventListener('DOMContentLoaded', function() {
       const shell = document.querySelector('.shell');
       if (shell) {
-        shell.innerHTML = '<div style="max-width:520px;margin:60px auto;padding:32px;background:#fff;border-radius:12px;text-align:center"><div style="font-size:3rem;margin-bottom:16px">✅</div><h2 style="color:#0A5C42">Ya completó esta encuesta</h2><p>Su respuesta fue registrada. Muchas gracias.</p></div>';
+        shell.innerHTML = `
+          <div style="max-width:520px;margin:60px auto;padding:32px;background:#fff;border-radius:12px;text-align:center">
+            <div style="font-size:3rem;margin-bottom:16px">✅</div>
+            <h2 style="color:#0A5C42">Ya completó esta encuesta</h2>
+            <p style="color:#444;margin-bottom:20px">Su respuesta fue registrada.</p>
+            <button onclick="localStorage.removeItem('encuesta_snk_completada'); location.reload();" style="background:#0F2744;color:white;border:none;padding:10px 20px;border-radius:8px;cursor:pointer">🔄 Reiniciar (solo para pruebas)</button>
+          </div>`;
       }
     });
   }
@@ -631,15 +649,11 @@ let cur = 0;
 const hist = [0];
 let protestaParticipacion = null;
 
-// ÁRBOL DE NAVEGACIÓN CORREGIDO
 function nextOf(s) {
   switch(s) {
     case 0: return 1;
     case 1: return 2;
-    case 2: {
-      if (ST.fue_victima === 'Si') return 4;
-      return 3;
-    }
+    case 2: return ST.fue_victima === 'Si' ? 4 : 3;
     case 3: return 11;
     case 4: return 5;
     case 5: {
@@ -659,10 +673,7 @@ function nextOf(s) {
     case 14: return 15;
     case 15: return 16;
     case 16: return 17;
-    case 17: {
-      if (protestaParticipacion === 'si') return 18;
-      return 19;
-    }
+    case 17: return protestaParticipacion === 'si' ? 18 : 19;
     case 18: return 20;
     case 19: return 20;
     case 20: return 21;
@@ -691,7 +702,7 @@ function go(n) {
   updateBtn(n);
 }
 
-function next() { const n = nextOf(cur); if(n !== null && n !== undefined) { hist.push(cur); go(n); } }
+function next() { const n = nextOf(cur); if(n) { hist.push(cur); go(n); } }
 function back() { if(hist.length > 1) { hist.pop(); go(hist[hist.length-1]); } }
 
 function consent(yes) {
@@ -706,36 +717,15 @@ function consent(yes) {
   hist.push(0); go(1);
 }
 
-function setVictima(v) { 
-  if (v === 'si' || v === 'Si' || v === 'Sí') {
-    ST.fue_victima = 'Si';
-  } else {
-    ST.fue_victima = 'No';
-  }
-  updateBtn(2); 
-}
-
+function setVictima(v) { ST.fue_victima = (v === 'si' || v === 'Si') ? 'Si' : 'No'; updateBtn(2); }
 function setDenuncia(v) {
-  if (v === 'si' || v === 'Si' || v === 'Sí') {
-    ST.denuncio = 'Si';
-  } else if (v === 'no' || v === 'No') {
-    ST.denuncio = 'No';
-  } else {
-    ST.denuncio = 'Prefiero no responder';
-  }
+  if (v === 'si' || v === 'Si') ST.denuncio = 'Si';
+  else if (v === 'no' || v === 'No') ST.denuncio = 'No';
+  else ST.denuncio = 'Prefiero no responder';
   updateBtn(5);
 }
-
-function setIntento(v) {
-  ST.intento_denuncia = (v === 'si' || v === 'Si' || v === 'Sí') ? 'Intenté pero no pude' : 'No lo intenté';
-  updateBtn(8);
-}
-
-function setProtesta(v) { 
-  protestaParticipacion = v; 
-  ST.participacion_protesta = v === 'si' ? 'Sí' : (v === 'no' ? 'No' : 'Prefiero no responder'); 
-  updateBtn(17); 
-}
+function setIntento(v) { ST.intento_denuncia = (v === 'si' || v === 'Si') ? 'Intenté pero no pude' : 'No lo intenté'; updateBtn(8); }
+function setProtesta(v) { protestaParticipacion = v; ST.participacion_protesta = v === 'si' ? 'Sí' : (v === 'no' ? 'No' : 'Prefiero no responder'); updateBtn(17); }
 
 function toggleCyber() { document.getElementById('blk-cyber')?.classList.toggle('on', document.getElementById('cb-ciber')?.checked); updateBtn(4); }
 function toggleCyberAccordion() { document.getElementById('cyber-accordion')?.classList.toggle('open'); }
@@ -743,38 +733,26 @@ function toggleOtro() { document.getElementById('blk-otro')?.classList.toggle('o
 function toggleMedOtro() { document.getElementById('blk-med-otro').style.display = document.getElementById('cb-med-otro')?.checked ? 'block' : 'none'; updateBtn(25); }
 
 function sc(btn, field, val) { btn.closest('.sbtns').querySelectorAll('.sbtn').forEach(b=>b.classList.remove('sel')); btn.classList.add('sel'); ST[field] = val; updateBtn(cur); document.getElementById('btn-sub') && (document.getElementById('btn-sub').disabled = !ST.d2_locus_control); }
-function sc5(btn, field, val) { btn.closest('.sbtns5').querySelectorAll('.sbtn5').forEach(b=>b.classList.remove('sel')); btn.classList.add('sel'); ST[field] = val; updateBtn(cur); }
 
-// EVENT LISTENER CORREGIDO
 document.addEventListener('change', function(e) {
   const inp = e.target;
   if(inp.type === 'radio') {
     document.querySelectorAll('input[name="'+inp.name+'"]').forEach(r => { r.closest('.opt')?.classList.remove('sel','sel-ctrl'); });
     inp.closest('.opt')?.classList.add(inp.closest('.card-ctrl') ? 'sel-ctrl' : 'sel');
     ST[inp.name] = inp.value;
-    
-    if(inp.name === 'fue_victima') {
-      setVictima(inp.value);
-    }
-    if(inp.name === 'denuncio') {
-      setDenuncia(inp.value);
-    }
-    if(inp.name === 'intento_denuncia') {
-      setIntento(inp.value);
-    }
-    if(inp.name === 'participacion_protesta') {
-      setProtesta(inp.value === 'Sí' ? 'si' : (inp.value === 'No' ? 'no' : 'nr'));
-    }
-    if(inp.name === 'razon_no_invirtio') { 
-      ST.razon_no_invirtio = inp.value; 
-      updateBtn(25); 
-    }
+    if(inp.name === 'fue_victima') setVictima(inp.value);
+    if(inp.name === 'denuncio') setDenuncia(inp.value);
+    if(inp.name === 'intento_denuncia') setIntento(inp.value);
+    if(inp.name === 'participacion_protesta') setProtesta(inp.value === 'Sí' ? 'si' : (inp.value === 'No' ? 'no' : 'nr'));
+    if(inp.name === 'razon_no_invirtio') { ST.razon_no_invirtio = inp.value; updateBtn(25); }
     updateBtn(cur);
     document.getElementById('btn-sub') && (document.getElementById('btn-sub').disabled = !ST.d2_locus_control);
   }
   if(inp.type === 'checkbox') {
     inp.closest('.opt')?.classList.toggle('sel', inp.checked);
     if(inp.name === 'medidas_seg') updateBtn(25);
+    if(inp.name === 'vic') updateBtn(4);
+    if(inp.name === 'ciber') updateBtn(4);
     updateBtn(cur);
   }
 });
