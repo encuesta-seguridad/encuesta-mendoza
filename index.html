@@ -6,24 +6,12 @@
 <title>Encuesta de Percepción de Seguridad · Mendoza 2026</title>
 <style>
 :root {
-  --azul:   #1B4F72;
-  --azul2:  #2471A3;
-  --bg:     #F0F4F8;
-  --card:   #FFFFFF;
-  --alt:    #EBF5FB;
-  --borde:  #D5E8F3;
-  --txt:    #1A2B3C;
-  --txt2:   #4A6274;
-  --muted:  #7F97A8;
-  --ok:     #1A7A4A;
-  --warn:   #B7460E;
-  --font:   'Verdana', 'Arial', sans-serif;
-  --r:      10px;
+  --azul:#1B4F72;--azul2:#2471A3;--bg:#F0F4F8;--card:#FFFFFF;--alt:#EBF5FB;
+  --borde:#D5E8F3;--txt:#1A2B3C;--txt2:#4A6274;--muted:#7F97A8;
+  --ok:#1A7A4A;--warn:#B7460E;--font:'Verdana','Arial',sans-serif;--r:10px;
 }
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 body{font-family:var(--font);background:var(--bg);color:var(--txt);font-size:16px;line-height:1.55;min-height:100vh}
-
-/* HEADER */
 .hdr{background:var(--azul);color:#fff;padding:0 1rem;position:sticky;top:0;z-index:200;box-shadow:0 2px 8px rgba(0,0,0,.25)}
 .hdr-in{max-width:640px;margin:0 auto;padding:.75rem 0 .5rem}
 .hdr-t{font-size:.95rem;font-weight:bold;color:#E8F4FD}
@@ -32,45 +20,31 @@ body{font-family:var(--font);background:var(--bg);color:var(--txt);font-size:16p
 .prog-m{display:flex;justify-content:space-between;font-size:.68rem;color:#A9CCE3;margin-bottom:.3rem}
 .prog-t{height:5px;background:rgba(255,255,255,.2);border-radius:99px;overflow:hidden}
 .prog-f{height:100%;background:#5DADE2;border-radius:99px;transition:width .4s ease;width:0%}
-
-/* SHELL */
 .shell{max-width:640px;margin:0 auto;padding:1.25rem 1rem 4rem}
-
-/* PANTALLAS */
 .px{display:none}
 .px.on{display:block;animation:fu .25s ease both}
 @keyframes fu{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:translateY(0)}}
-
-/* CARD */
 .card{background:var(--card);border:1px solid var(--borde);border-radius:var(--r);padding:1.25rem 1.25rem 1rem;margin-bottom:1rem}
 .card-t{font-size:.72rem;font-weight:bold;letter-spacing:.08em;text-transform:uppercase;color:var(--azul2);margin-bottom:.75rem}
-
-/* LABEL */
 .ql{font-size:.93rem;font-weight:bold;color:var(--txt);margin-bottom:.85rem;display:block;line-height:1.45}
 .qh{font-size:.78rem;color:var(--muted);font-weight:normal;display:block;margin-top:.25rem}
 .qr{color:var(--warn);margin-left:2px}
-
-/* OPCIONES */
 .opts{display:flex;flex-direction:column;gap:.55rem}
 .opts.row{flex-direction:row;flex-wrap:wrap;gap:.5rem}
 .opt{display:flex;align-items:center;gap:.75rem;background:var(--alt);border:2px solid transparent;border-radius:8px;padding:.75rem 1rem;cursor:pointer;transition:border-color .15s,background .15s;font-size:.9rem;color:var(--txt);user-select:none;-webkit-tap-highlight-color:transparent;min-height:48px}
 .opt:hover{border-color:var(--azul2)}
 .opt.on{border-color:var(--azul);background:#D6EAF8;font-weight:bold}
-.ind{width:20px;height:20px;border:2px solid var(--muted);border-radius:50%;flex-shrink:0;display:grid;place-items:center;transition:all .15s}
+.ind{width:20px;height:20px;border:2px solid var(--muted);border-radius:50%;flex-shrink:0;display:grid;place-items:center;transition:all .15s;min-width:20px}
 .opt.on .ind{border-color:var(--azul);background:var(--azul)}
 .opt.on .ind::after{content:'';width:8px;height:8px;background:#fff;border-radius:50%}
 .opt.chk .ind{border-radius:4px}
 .opt.chk.on .ind::after{content:'✓';font-size:11px;color:#fff;width:auto;height:auto;border-radius:0;background:transparent}
-
-/* ESCALA */
 .esc-btns{display:flex;gap:.4rem}
 .eb{flex:1;min-height:52px;border:2px solid var(--borde);border-radius:8px;background:var(--alt);font-size:1.05rem;font-weight:bold;color:var(--txt2);cursor:pointer;transition:all .15s;display:flex;align-items:center;justify-content:center;-webkit-tap-highlight-color:transparent}
 .eb:hover{border-color:var(--azul2)}
 .eb.on{border-color:var(--azul);background:#D6EAF8;color:var(--azul)}
 .esc-ext{display:flex;justify-content:space-between;font-size:.67rem;color:var(--muted);margin-top:.35rem;padding:0 2px}
 .esc-lbl{font-size:.82rem;font-weight:bold;color:var(--txt2);margin-bottom:.35rem}
-
-/* INPUTS */
 .ti,.ta,select.si{width:100%;border:2px solid var(--borde);border-radius:8px;padding:.7rem .9rem;font-size:.9rem;font-family:var(--font);color:var(--txt);background:var(--alt);outline:none;transition:border-color .15s}
 .ti:focus,.ta:focus,select.si:focus{border-color:var(--azul2);background:#fff}
 .ta{resize:vertical;min-height:72px}
@@ -78,8 +52,6 @@ input[type=number].ti{-moz-appearance:textfield}
 input[type=number].ti::-webkit-inner-spin-button,input[type=number].ti::-webkit-outer-spin-button{-webkit-appearance:none}
 select.si{appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath fill='%234A6274' d='M6 8L0 0h12z'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right .9rem center;padding-right:2.5rem}
 .cc{font-size:.7rem;color:var(--muted);text-align:right;margin-top:.25rem}
-
-/* BOTONES */
 .btn-row{display:flex;justify-content:space-between;gap:.75rem;margin-top:1.5rem}
 .btn{padding:.8rem 1.5rem;border-radius:8px;font-size:.92rem;font-weight:bold;font-family:var(--font);cursor:pointer;border:none;transition:background .15s,opacity .15s;min-height:48px;display:flex;align-items:center;gap:.5rem}
 .btn-p{background:var(--azul);color:#fff;flex:1;justify-content:center}
@@ -90,21 +62,16 @@ select.si{appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns=
 .btn-si{background:var(--ok);color:#fff;flex:1;justify-content:center;font-size:1rem;padding:1rem}
 .btn-no{background:transparent;border:2px solid #c0c0c0;color:var(--txt2);justify-content:center;padding:1rem}
 .cbtns{display:flex;flex-direction:column;gap:.65rem;margin-top:1.25rem}
-
-/* ERROR */
 .qerr{font-size:.78rem;color:var(--warn);margin-top:.4rem;display:none}
 .qerr.v{display:block}
-
-/* FINAL */
 .final{text-align:center;padding:3rem 1rem}
 .final .ico{font-size:3.5rem;margin-bottom:1rem}
 .final h2{font-size:1.3rem;font-weight:bold;margin-bottom:.75rem}
 .final p{font-size:.9rem;color:var(--txt2);max-width:380px;margin:0 auto}
-
-/* SPINNER */
 .spin{display:none;width:18px;height:18px;border:3px solid rgba(255,255,255,.4);border-top-color:#fff;border-radius:50%;animation:sp .7s linear infinite}
 @keyframes sp{to{transform:rotate(360deg)}}
-
+.esc-na{margin-top:.5rem}
+.esc-disabled{opacity:.35;pointer-events:none}
 @media(max-width:420px){.btn-row{flex-direction:column-reverse}.cbtns{flex-direction:column}.esc-btns{gap:.25rem}}
 </style>
 </head>
@@ -145,12 +112,12 @@ select.si{appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns=
 
 <!-- S26A EDAD + GÉNERO -->
 <div class="px" id="p-s26a">
-  <div class="card" id="c-edad">
+  <div class="card">
     <label class="ql" for="f-edad">¿Cuántos años tiene? <span class="qr">*</span></label>
     <input type="number" class="ti" id="f-edad" min="16" max="99" placeholder="Ej: 34" inputmode="numeric">
     <div class="qerr" id="e-edad">Ingrese su edad entre 16 y 99 años.</div>
   </div>
-  <div class="card" id="c-sexo">
+  <div class="card">
     <span class="ql">¿Con qué género se identifica? <span class="qr">*</span></span>
     <div class="opts row" id="g-sexo"></div>
     <div class="qerr" id="e-sexo">Seleccione una opción.</div>
@@ -160,7 +127,7 @@ select.si{appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns=
 
 <!-- S26B DEPARTAMENTO + EDUCACIÓN -->
 <div class="px" id="p-s26b">
-  <div class="card" id="c-dept">
+  <div class="card">
     <label class="ql" for="f-dept">¿En qué departamento de Mendoza vive? <span class="qr">*</span></label>
     <select class="si" id="f-dept" onchange="D.s26c_departamento=this.value">
       <option value="">— Seleccione —</option>
@@ -185,20 +152,20 @@ select.si{appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns=
 
 <!-- S1 ESTADO INICIAL -->
 <div class="px" id="p-s1">
-  <div class="card" id="c-s1">
+  <div class="card">
     <span class="ql">Ahora mismo, ¿cómo se siente físicamente? <span class="qr">*</span></span>
     <div class="opts" id="g-s1"></div>
     <div class="qerr" id="e-s1">Seleccione una opción.</div>
   </div>
   <div class="btn-row">
     <button class="btn btn-s" onclick="ir('s26b')">← Atrás</button>
-    <button class="btn btn-p" onclick="de_s1()">Siguiente →</button>
+    <button class="btn btn-p" onclick="de_req('s1_estado_inicial','e-s1','s2')">Siguiente →</button>
   </div>
 </div>
 
 <!-- S2 VICTIMIZACIÓN -->
 <div class="px" id="p-s2">
-  <div class="card" id="c-s2">
+  <div class="card">
     <span class="ql">En el último año, ¿usted o un familiar directo fue víctima de algún delito? <span class="qr">*</span></span>
     <div class="opts row" id="g-s2"></div>
     <div class="qerr" id="e-s2">Seleccione una opción.</div>
@@ -223,7 +190,7 @@ select.si{appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns=
 
 <!-- S4 TIPO DE DELITO (solo si S2=Sí) -->
 <div class="px" id="p-s4">
-  <div class="card" id="c-s4">
+  <div class="card">
     <span class="ql">¿Qué tipo de delito sufrió? Marque todos los que correspondan. <span class="qr">*</span></span>
     <div class="opts" id="g-s4"></div>
     <div class="qerr" id="e-s4">Seleccione al menos un tipo de delito.</div>
@@ -261,7 +228,7 @@ select.si{appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns=
 
 <!-- S5B DENUNCIA -->
 <div class="px" id="p-s5b">
-  <div class="card" id="c-s5b">
+  <div class="card">
     <span class="ql">¿Realizó una denuncia por ese hecho? <span class="qr">*</span></span>
     <div class="opts" id="g-s5b"></div>
     <div class="qerr" id="e-s5b">Seleccione una opción.</div>
@@ -322,7 +289,7 @@ select.si{appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns=
 
 <!-- S8 INTENTO (si S5b≠Sí) -->
 <div class="px" id="p-s8">
-  <div class="card" id="c-s8">
+  <div class="card">
     <span class="ql">¿Llegó a intentar hacer la denuncia? <span class="qr">*</span></span>
     <div class="opts" id="g-s8"></div>
     <div class="qerr" id="e-s8">Seleccione una opción.</div>
@@ -333,7 +300,7 @@ select.si{appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns=
   </div>
 </div>
 
-<!-- S9A BARRERA -->
+<!-- S9A BARRERA (intentó y no pudo) -->
 <div class="px" id="p-s9a">
   <div class="card">
     <span class="ql">¿Cuál fue el principal obstáculo para completar la denuncia?</span>
@@ -341,18 +308,6 @@ select.si{appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns=
   </div>
   <div class="btn-row">
     <button class="btn btn-s" onclick="ir('s8')">← Atrás</button>
-    <button class="btn btn-p" onclick="ir('s9b')">Siguiente →</button>
-  </div>
-</div>
-
-<!-- S9B EXPECTATIVA TRATO (intentó y no pudo) -->
-<div class="px" id="p-s9b">
-  <div class="card">
-    <span class="ql">Más allá de lo que pasó, ¿cómo cree que le habrían tratado si hubiera podido completar la denuncia?</span>
-    <div class="opts" id="g-s9b"></div>
-  </div>
-  <div class="btn-row">
-    <button class="btn btn-s" onclick="ir('s9a')">← Atrás</button>
     <button class="btn btn-p" onclick="ir('s11')">Siguiente →</button>
   </div>
 </div>
@@ -386,19 +341,25 @@ select.si{appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns=
   <div class="card">
     <span class="ql">¿Cuánta confianza le genera cada institución en Mendoza?<br><span class="qh">1 = ninguna · 4 = plena</span></span>
     <div style="margin-top:.75rem;display:flex;flex-direction:column;gap:1rem">
-      <div><div class="esc-lbl">⚖️ Poder Judicial</div><div class="esc-btns" id="es-s11a"></div></div>
-      <div><div class="esc-lbl">👮 Policía Provincial</div><div class="esc-btns" id="es-s11b"></div></div>
+      <div>
+        <div class="esc-lbl">⚖️ Poder Judicial</div>
+        <div class="esc-btns" id="es-s11a"></div>
+      </div>
+      <div>
+        <div class="esc-lbl">👮 Policía Provincial</div>
+        <div class="esc-btns" id="es-s11b"></div>
+      </div>
       <div>
         <div class="esc-lbl">🏘️ Seguridad Municipal</div>
         <div class="esc-btns" id="es-s11c"></div>
-        <div style="margin-top:.5rem">
-          <div class="opt chk" id="opt-s11na" onclick="togNA()" style="padding:.5rem .75rem;font-size:.82rem">
+        <div class="esc-na">
+          <div class="opt chk" id="opt-na" onclick="togNA()" style="padding:.55rem .9rem;font-size:.85rem;margin-top:.4rem">
             <div class="ind"></div>No aplica a mi zona
           </div>
         </div>
       </div>
     </div>
-    <div class="esc-ext" style="margin-top:.5rem"><span>Ninguna</span><span>Plena</span></div>
+    <div class="esc-ext" style="margin-top:.6rem"><span>Ninguna</span><span>Plena</span></div>
   </div>
   <div class="btn-row">
     <button class="btn btn-s" onclick="atras_s11()">← Atrás</button>
@@ -406,9 +367,9 @@ select.si{appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns=
   </div>
 </div>
 
-<!-- S12 CAUSA INSEGURIDAD [A1] -->
+<!-- S12 CAUSA [A1] -->
 <div class="px" id="p-s12">
-  <div class="card" id="c-s12">
+  <div class="card">
     <span class="ql">Cuando crece la inseguridad en una ciudad, ¿cuál cree que es la causa principal? <span class="qr">*</span></span>
     <div class="opts" id="g-s12"></div>
     <div class="qerr" id="e-s12">Seleccione una opción.</div>
@@ -421,7 +382,7 @@ select.si{appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns=
 
 <!-- S13A PELIGRO BARRIO -->
 <div class="px" id="p-s13a">
-  <div class="card" id="c-s13a">
+  <div class="card">
     <span class="ql">¿Qué tan peligroso le resulta caminar solo/a por su barrio de noche? <span class="qr">*</span><br><span class="qh">1 = nada peligroso · 4 = muy peligroso</span></span>
     <div class="esc-btns" id="es-s13a"></div>
     <div class="esc-ext"><span>Nada peligroso</span><span>Muy peligroso</span></div>
@@ -435,7 +396,7 @@ select.si{appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns=
 
 <!-- S13B VISIÓN JUSTICIA [A2] -->
 <div class="px" id="p-s13b">
-  <div class="card" id="c-s13b">
+  <div class="card">
     <span class="ql">¿Cuál de estas frases describe mejor su opinión sobre la justicia penal? <span class="qr">*</span></span>
     <div class="opts" id="g-s13b"></div>
     <div class="qerr" id="e-s13b">Seleccione una opción.</div>
@@ -464,7 +425,7 @@ select.si{appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns=
 
 <!-- S15 MEMORIA [B1] -->
 <div class="px" id="p-s15">
-  <div class="card" id="c-s15">
+  <div class="card">
     <span class="ql">¿En qué momento sintió que Mendoza era más segura para usted? <span class="qr">*</span></span>
     <div class="opts" id="g-s15"></div>
     <div class="qerr" id="e-s15">Seleccione una opción.</div>
@@ -475,7 +436,7 @@ select.si{appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns=
   </div>
 </div>
 
-<!-- S16A DERECHOS LIMITADOS escalas -->
+<!-- S16A DERECHOS LIMITADOS -->
 <div class="px" id="p-s16a">
   <div class="card">
     <span class="ql">¿Cuánto limita el miedo al delito el ejercicio de estos derechos?<br><span class="qh">1 = nada · 4 = mucho</span></span>
@@ -505,7 +466,7 @@ select.si{appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns=
 
 <!-- S17 PROTESTAS -->
 <div class="px" id="p-s17">
-  <div class="card" id="c-s17">
+  <div class="card">
     <span class="ql">En el último año, ¿participó en alguna marcha, protesta o manifestación pública? <span class="qr">*</span></span>
     <div class="opts" id="g-s17"></div>
     <div class="qerr" id="e-s17">Seleccione una opción.</div>
@@ -516,7 +477,7 @@ select.si{appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns=
   </div>
 </div>
 
-<!-- S18A EXPERIENCIA PROTESTAS (si S17=Sí) -->
+<!-- S18A EXPERIENCIA PROTESTAS (solo si S17=Sí) -->
 <div class="px" id="p-s18a">
   <div class="card">
     <span class="ql">En esa experiencia, del 1 al 5, ¿en qué medida…?<br><span class="qh">1 = nada · 5 = mucho</span></span>
@@ -535,7 +496,7 @@ select.si{appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns=
   </div>
 </div>
 
-<!-- S18B TEXTO LIBRE PROTESTAS -->
+<!-- S18B TEXTO LIBRE (solo si S17=Sí) -->
 <div class="px" id="p-s18b">
   <div class="card">
     <span class="ql">¿Qué habría necesitado para sentirse más respetado/a en esa situación?<br><span class="qh">Opcional · máximo 200 caracteres</span></span>
@@ -544,11 +505,11 @@ select.si{appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns=
   </div>
   <div class="btn-row">
     <button class="btn btn-s" onclick="ir('s18a')">← Atrás</button>
-    <button class="btn btn-p" onclick="ir('s19a')">Siguiente →</button>
+    <button class="btn btn-p" onclick="ir('s20a')">Siguiente →</button>
   </div>
 </div>
 
-<!-- S19A OPINIÓN PROTESTAS (todos) -->
+<!-- S19A OPINIÓN PROTESTAS (solo si S17=No o Prefiero no responder) -->
 <div class="px" id="p-s19a">
   <div class="card">
     <span class="ql">Del 1 al 5, ¿cuánto acuerda con cada afirmación?<br><span class="qh">1 = en total desacuerdo · 5 = totalmente de acuerdo</span></span>
@@ -561,12 +522,12 @@ select.si{appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns=
     <div class="esc-ext" style="margin-top:.5rem"><span>En total desacuerdo</span><span>Totalmente de acuerdo</span></div>
   </div>
   <div class="btn-row">
-    <button class="btn btn-s" onclick="atras_s19()">← Atrás</button>
+    <button class="btn btn-s" onclick="ir('s17')">← Atrás</button>
     <button class="btn btn-p" onclick="ir('s19b')">Siguiente →</button>
   </div>
 </div>
 
-<!-- S19B TEXTO LIBRE ESTADO -->
+<!-- S19B TEXTO LIBRE (solo si S17=No o Prefiero no responder) -->
 <div class="px" id="p-s19b">
   <div class="card">
     <span class="ql">¿Qué debería hacer el Estado cuando una protesta genera conflictos?<br><span class="qh">Opcional · máximo 200 caracteres</span></span>
@@ -586,7 +547,7 @@ select.si{appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns=
     <div class="opts" id="g-s20a"></div>
   </div>
   <div class="btn-row">
-    <button class="btn btn-s" onclick="ir('s19b')">← Atrás</button>
+    <button class="btn btn-s" onclick="atras_s20a()">← Atrás</button>
     <button class="btn btn-p" onclick="ir('s20b')">Siguiente →</button>
   </div>
 </div>
@@ -594,8 +555,8 @@ select.si{appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns=
 <!-- S20B OLFATO -->
 <div class="px" id="p-s20b">
   <div class="card">
-    <span class="ql">Si hay algún olor que asocie con la sensación de inseguridad, ¿cuál sería?<br><span class="qh">Opcional · máximo 150 caracteres</span></span>
-    <input type="text" class="ti" id="f-s20b" maxlength="150" placeholder="Describa el olor si quiere…">
+    <span class="ql">¿Hay algún lugar, sonido, olor o sensación que le transmita seguridad? Descríbalo si quiere.<br><span class="qh">Opcional · máximo 150 caracteres</span></span>
+    <input type="text" class="ti" id="f-s20b" maxlength="150" placeholder="Describa si quiere…">
   </div>
   <div class="btn-row">
     <button class="btn btn-s" onclick="ir('s20a')">← Atrás</button>
@@ -605,7 +566,7 @@ select.si{appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns=
 
 <!-- S21 MEDIDA CONCRETA [C1] -->
 <div class="px" id="p-s21">
-  <div class="card" id="c-s21">
+  <div class="card">
     <span class="ql">Si pudiera implementar una sola medida para sentirse más seguro/a, ¿cuál elegiría? <span class="qr">*</span></span>
     <div class="opts" id="g-s21"></div>
     <div class="qerr" id="e-s21">Seleccione una opción.</div>
@@ -618,7 +579,7 @@ select.si{appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns=
 
 <!-- S22 ORIGEN [B2] -->
 <div class="px" id="p-s22">
-  <div class="card" id="c-s22">
+  <div class="card">
     <span class="ql">¿Cuál de estas ideas le parece que mejor explica el origen del problema de seguridad? <span class="qr">*</span></span>
     <div class="opts" id="g-s22"></div>
     <div class="qerr" id="e-s22">Seleccione una opción.</div>
@@ -631,7 +592,7 @@ select.si{appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns=
 
 <!-- S23A PESADILLAS -->
 <div class="px" id="p-s23a">
-  <div class="card" id="c-s23a">
+  <div class="card">
     <span class="ql">En el último mes, ¿tuvo pesadillas relacionadas con situaciones de peligro, persecuciones o ataques? <span class="qr">*</span></span>
     <div class="opts" id="g-s23a"></div>
     <div class="qerr" id="e-s23a">Seleccione una opción.</div>
@@ -644,7 +605,7 @@ select.si{appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns=
 
 <!-- S23B MANO DURA [C2] -->
 <div class="px" id="p-s23b">
-  <div class="card" id="c-s23b">
+  <div class="card">
     <span class="ql">Cuando escucha la expresión "mano dura" en relación con la seguridad, ¿qué le genera? <span class="qr">*</span></span>
     <div class="opts" id="g-s23b"></div>
     <div class="qerr" id="e-s23b">Seleccione una opción.</div>
@@ -658,7 +619,7 @@ select.si{appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns=
 <!-- S24 GROUNDING -->
 <div class="px" id="p-s24">
   <div class="card">
-    <span class="ql">¿Hay algún lugar, sonido, olor o sensación que le transmita una sensación de seguridad? Descríbalo si quiere.<br><span class="qh">Opcional · máximo 200 caracteres</span></span>
+    <span class="ql">¿Hay algún lugar, sonido, olor o sensación que le transmita seguridad? Descríbalo si quiere.<br><span class="qh">Opcional · máximo 200 caracteres</span></span>
     <textarea class="ta" id="f-s24" maxlength="200" placeholder="Descripción opcional…" oninput="cc(this,'cc-s24',200)"></textarea>
     <div class="cc"><span id="cc-s24">200</span> caracteres restantes</div>
   </div>
@@ -670,7 +631,7 @@ select.si{appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns=
 
 <!-- S25A INVERSIÓN -->
 <div class="px" id="p-s25a">
-  <div class="card" id="c-s25a">
+  <div class="card">
     <span class="ql">En el último año, ¿su hogar invirtió dinero para mejorar la seguridad? <span class="qr">*</span></span>
     <div class="opts row" id="g-s25a"></div>
     <div class="qerr" id="e-s25a">Seleccione una opción.</div>
@@ -708,7 +669,7 @@ select.si{appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns=
 <!-- S27A FUENTE INFO [D1] -->
 <div class="px" id="p-s27a">
   <div class="card">
-    <span class="ql">¿De dónde obtiene información sobre seguridad e inseguridad? Marque todas las que usa.</span>
+    <span class="ql">¿Cuál es el medio con el que habitualmente se informa? Marque todos los que usa.</span>
     <div class="opts" id="g-s27a"></div>
   </div>
   <div class="btn-row">
@@ -776,164 +737,158 @@ select.si{appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns=
   <button class="btn btn-p" style="margin:1.5rem auto 0;display:inline-flex" onclick="reint()">Reintentar</button>
 </div>
 
-</div><!-- /shell -->
+</div>
 <script>
 const WEB='https://script.google.com/macros/s/AKfycbxSR4FfTGWX_ojMFOlsczzmO5Qpy_yH4Or4goYZ0L9zpCM3m9Kx3TVy-ep2pzrNq4809A/exec';
-const TOTAL=36;
-const PASOS={s0:0,s26a:1,s26b:2,s1:3,s2:4,s3:5,s4:5,s45:6,s5a:7,s5b:8,s6a:9,s6b:10,s7a:11,s7b:12,s8:9,s9a:10,s9b:11,s10a:10,s10b:11,s11:13,s12:14,s13a:15,s13b:16,s14:17,s15:18,s16a:19,s16b:20,s17:21,s18a:22,s18b:23,s19a:22,s19b:23,s20a:24,s20b:25,s21:26,s22:27,s23a:28,s23b:29,s24:30,s25a:31,s25b:32,s25c:32,s27a:33,s27b:34,s28:35,s29:36};
+const TOTAL=34;
+const PASOS={s0:0,s26a:1,s26b:2,s1:3,s2:4,s3:5,s4:5,s45:6,s5a:7,s5b:8,
+  s6a:9,s6b:10,s7a:11,s7b:12,s8:9,s9a:10,s10a:10,s10b:11,
+  s11:13,s12:14,s13a:15,s13b:16,s14:17,s15:18,s16a:19,s16b:20,
+  s17:21,s18a:22,s18b:23,s19a:22,s19b:23,
+  s20a:24,s20b:25,s21:26,s22:27,s23a:28,s23b:29,s24:30,
+  s25a:31,s25b:32,s25c:32,s27a:33,s27b:34,s28:35,s29:36};
 
-// Estado global
 const D={};
-let act='s0', t0=Date.now(), TT={}, payload_r=null;
+let act='s0',t0=Date.now(),TT={},payload_r=null;
 
-// ── OPCIONES PREDEFINIDAS ──────────────────────────────────────
+// ── OPCIONES ─────────────────────────────────────────────────
 const OPTS={
   sexo:['Femenino','Masculino','No binario','Prefiero no decirlo'],
   edu:['Primario','Secundario','Terciario o universitario incompleto','Universitario completo','Posgrado'],
   s1:['😌 Relajado/a, sin tensiones','🙂 Un poco inquieto/a','😐 Con tensión leve (hombros, mandíbula)','😟 Nervioso/a, con el corazón algo acelerado','😰 Muy alerta, como si algo malo pudiera pasar'],
-  s2:['✅ Sí','❌ No'],
-  s3:['👍 Muy bien','🙂 Bien','😐 Regular','👎 Mal'],
-  s4:['🔴 Robo con violencia','🟠 Hurto sin violencia','🟠 Arrebato en vía pública','⚠️ Amenazas','🩹 Lesiones','🚨 Acoso callejero','🚗 Robo de vehículo','🪟 Hurto de objetos del vehículo','🏠 Robo en vivienda','🔨 Daño a la propiedad','💰 Extorsión','💜 Violencia de género','💻 Ciberdelito','➕ Otro'],
-  s45:['📧 Correo electrónico falso que pedía datos o clics (phishing)','📱 Mensaje de texto o WhatsApp fraudulento (smishing)','📞 Llamada telefónica engañosa (vishing)','🛒 Estafa en compras por internet','🔐 Secuestro de archivos con pedido de rescate (ransomware)','🌐 Redirección a un sitio web falso (pharming)','🪪 Robo de identidad digital','😣 Acoso en línea (ciberacoso)','⚠️ Acoso a menores en línea (grooming)','📂 Publicación de datos privados sin consentimiento (doxing)','🔓 Hackeo malicioso de cuentas o dispositivos','💾 Filtración de datos personales','🦠 Instalación de software malicioso (malware)'],
-  s5b:['✅ Sí','❌ No','🤐 Prefiero no responder'],
-  s6a:['🏛️ En persona (Oficina Fiscal)','🌐 Por internet (web del MPF)','📟 En un tótem de autogestión','🤖 Por el chatbot LEXA'],
-  s6b:['📋 Para reclamar al seguro','⚖️ Para buscar justicia','🛡️ Para recuperar mis derechos','🤝 Porque lo siento una obligación ciudadana','💬 Alguien me lo recomendó','➕ Otra razón'],
-  s7a:['⭐⭐⭐ Muy buena','⭐⭐ Buena','⭐ Regular','👎 Mala'],
-  s7b:['Me preguntaron si estaba seguro/a de querer denunciar','Me pidieron pruebas antes de aceptar la denuncia','Me advirtieron sobre posibles represalias','Minimizaron lo que me pasó','Me interrumpieron varias veces','✅ Recibí una buena atención, sin problemas','Ninguna de las anteriores'],
-  s8:['🔄 Intenté, pero no pude','❌ No lo intenté'],
-  s9a:['📍 La oficina fiscal queda lejos de mi casa','🕐 Los horarios no me resultaron compatibles','💻 La página web no funcionaba','⏳ Tuve que esperar demasiado tiempo','🚫 Me rechazaron la denuncia','😤 Recibí un trato desconsiderado','🗣️ Me convencieron de no seguir adelante'],
-  s9b:['🙂 Bien','😐 Regular','😟 Mal','🤷 No sé'],
-  s10a:['📍 El lugar o los horarios me lo impidieron','😰 Tenía miedo a represalias','⚖️ No confío en la justicia','🔽 Fue algo menor y no valía la pena','❓ No sabía cómo ni dónde hacerlo','🙁 Creí que no iba a servir de nada','💪 Lo resolví por mi cuenta'],
-  s10b:['🙂 Bien','😐 Regular','😟 Mal','🤷 No sé'],
+  s2:['Sí','No'],
+  s3:['Muy bien','Bien','Regular','Mal'],
+  s4:['Robo con violencia','Hurto sin violencia','Arrebato en vía pública','Amenazas','Lesiones','Acoso callejero','Robo de vehículo','Hurto de objetos del vehículo','Robo en vivienda','Daño a la propiedad','Extorsión','Violencia de género','Ciberdelito','Otro'],
+  s45:['Phishing (correo electrónico falso)','Smishing (SMS o WhatsApp fraudulento)','Vishing (llamada telefónica engañosa)','Estafa en compras por internet','Ransomware (secuestro de archivos)','Pharming (redirección a sitio web falso)','Robo de identidad digital','Ciberacoso','Grooming (acoso a menores en línea)','Doxing (publicación de datos privados)','Hackeo de cuentas o dispositivos','Filtración de datos personales','Malware (software malicioso)'],
+  s5b:['Sí','No','Prefiero no responder'],
+  s6a:['En persona (Oficina Fiscal)','Por internet (web del MPF)','En un tótem de autogestión','Por el chatbot LEXA'],
+  s6b:['Para reclamar al seguro','Para buscar justicia','Para recuperar mis derechos','Porque lo siento una obligación ciudadana','Alguien me lo recomendó','Otra razón'],
+  s7a:['Muy buena','Buena','Regular','Mala'],
+  s7b:['Me preguntaron si estaba seguro/a de querer denunciar','Me pidieron pruebas antes de aceptar la denuncia','Me advirtieron sobre posibles represalias','Minimizaron lo que me pasó','Me interrumpieron varias veces','Recibí una buena atención, sin problemas','Ninguna de las anteriores'],
+  s8:['Intenté, pero no pude','No lo intenté'],
+  s9a:['La oficina fiscal queda lejos de mi casa','Los horarios no me resultaron compatibles','La página web no funcionaba','Tuve que esperar demasiado tiempo','Me rechazaron la denuncia','Recibí un trato desconsiderado','Me convencieron de no seguir adelante'],
+  s10a:['El lugar o los horarios me lo impidieron','Tenía miedo a represalias','No confío en la justicia','Fue algo menor y no valía la pena','No sabía cómo ni dónde hacerlo','Creí que no iba a servir de nada','Lo resolví por mi cuenta'],
+  s10b:['Bien','Regular','Mal','No sé'],
   s12:['Falta de inversión social (educación, empleo, vivienda)','Leyes penales demasiado blandas','Corrupción policial','Ineficiencia de la policía','Corrupción judicial','Ineficiencia de la justicia','Desintegración del núcleo familiar','Políticas de ajuste que generan pobreza','Falta de continuidad en las políticas de seguridad'],
   s13b:['Funciona bien','Necesita cambios, pero va por buen camino','Es lenta y poco efectiva','Está orientada a castigar, no a prevenir','Está orientada a prevenir el delito','Prioriza la reinserción social','Favorece a los que tienen poder o dinero','No confío en ella'],
-  s15:['🕰️ Hace más de 8 años','📅 Entre 5 y 8 años atrás','📅 Entre 2 y 5 años atrás','🗓️ En el último año','🤷 Nunca noté una diferencia significativa'],
-  s16c:['🚶 Circular libremente por la ciudad','🤝 Reunirme con otros sin miedo','💼 Trabajar en ciertos lugares u horarios','🎭 Hacer actividades sociales, deportivas o recreativas'],
-  s17:['✅ Sí','❌ No','🤐 Prefiero no responder'],
-  s20a:['😮‍💨 Opresión o presión en el pecho','👀 Mirar hacia atrás constantemente','😬 Hombros o cuello tensos','🏃 Caminar más rápido de lo normal','🤲 Manos sudorosas','👁️ Sensación de ser observado/a','😌 Ninguna — me siento tranquilo/a'],
-  s21:['👮 Mejorar la formación y el control de la policía','🚔 Aumentar la cantidad de policías y su capacidad de acción','🏫 Invertir más en educación y empleo para toda la sociedad','⚖️ Contar con jueces independientes y sin presiones externas','🏛️ Tener fiscales comprometidos con las necesidades de la comunidad','💊 Reducir el consumo de drogas','💰 Incautar los bienes del narcotráfico'],
+  s15:['Hace más de 8 años','Entre 5 y 8 años atrás','Entre 2 y 5 años atrás','En el último año','Nunca noté una diferencia significativa'],
+  s16c:['Circular libremente por la ciudad','Reunirme con otros sin miedo','Trabajar en ciertos lugares u horarios','Hacer actividades sociales, deportivas o recreativas'],
+  s17:['Sí','No','Prefiero no responder'],
+  s20a:['Opresión o presión en el pecho','Mirar hacia atrás constantemente','Hombros o cuello tensos','Caminar más rápido de lo normal','Manos sudorosas','Sensación de ser observado/a','Ninguna — me siento tranquilo/a'],
+  s21:['Mejorar la formación y el control de la policía','Aumentar la cantidad de policías y su capacidad de acción','Invertir más en educación y empleo para toda la sociedad','Contar con jueces independientes y sin presiones externas','Tener fiscales comprometidos con las necesidades de la comunidad','Reducir el consumo de drogas','Incautar los bienes del narcotráfico'],
   s22:['El Estado abandonó los barrios más vulnerables','Se liberó gente peligrosa que no debería haber salido','La corrupción policial genera más inseguridad','El problema se relaciona con la inmigración indiscriminada','Son décadas de malas políticas que se acumularon'],
-  s23a:['😴 Nunca','😟 Una vez','😰 2 o 3 veces','😱 Más de 3 veces'],
-  s23b:['😌 Alivio — es lo que hace falta','🤞 Esperanza, siempre que se eviten los excesos','😐 Indiferencia — no me genera nada','🤨 Desconfianza — suele usarse para justificar abusos','✊ Rechazo — termina criminalizando la pobreza'],
-  s25a:['✅ Sí','❌ No'],
-  s25b:['🔔 Sistema de alarma','🌀 Cerco de concertina','⚡ Cerco eléctrico','📷 Cámaras de seguridad','🔒 Rejas adicionales','➕ Otra'],
-  s25c:['🙂 No lo consideramos necesario','🤔 No creo que mejore la situación','💸 No puedo pagarlo','🏠 No es mi vivienda','➕ Otra razón'],
-  s27a:['📰 Portales de noticias mendocinos','📱 Redes sociales','📺 Televisión local','📺 Televisión nacional','📻 Radio','💬 WhatsApp (grupos de conocidos o vecinos)','🔇 No consumo noticias'],
-  s28:['Cambia Mendoza (UCR–PRO)','Frente Elegí / Frente de Todos (Peronismo / Kirchnerismo)','La Libertad Avanza (LLA)','Frente de Izquierda (FIT)','Partido Verde (PV)','La Unión Mendocina (LUM)','Otro partido o fuerza','Ninguno','🤐 Prefiero no decirlo'],
+  s23a:['Nunca','Una vez','2 o 3 veces','Más de 3 veces'],
+  s23b:['Alivio — es lo que hace falta','Esperanza, siempre que se eviten los excesos','Indiferencia — no me genera nada','Desconfianza — suele usarse para justificar abusos','Rechazo — termina criminalizando la pobreza'],
+  s25a:['Sí','No'],
+  s25b:['Sistema de alarma','Cerco de concertina','Cerco eléctrico','Cámaras de seguridad','Rejas adicionales','Otra'],
+  s25c:['No lo consideramos necesario','No creo que mejore la situación','No puedo pagarlo','No es mi vivienda','Otra razón'],
+  s27a:['Portales de noticias mendocinos','Redes sociales','Televisión local','Televisión nacional','Radio','WhatsApp (grupos de conocidos o vecinos)','No me informo habitualmente'],
+  s28:['UCR/PRO (Cambia Mendoza)','PJ (FdT / Frente Elegí)','LLA (La Libertad Avanza)','FIT (Frente de Izquierda y de los Trabajadores)','PV (Partido Verde)','LUM (La Unión Mendocina)','Otro partido o fuerza','Ninguno','Prefiero no decirlo'],
 };
 
-// Mapa campo → valor limpio (sin emoji inicial)
-function limpio(v){ return v.replace(/^[\u{1F000}-\u{1FFFF}\u{2600}-\u{27BF}\u{2B00}-\u{2BFF}✅❌🤐👍👎😌🙂😐😟😰😱😴🔄💻⚠️📧📱📞🛒🔐🌐🪪😣📂🔓💾🦠🏛️🌐📟🤖📋⚖️🛡️🤝💬➕⭐🚫😤🗣️📍🕐⏳💪❓🔽⭐💜🔴🟠⭐🩹🚨🚗🪟🏠🔨💰👮🚔🏫📮👁️😮‍💨😬🏃🤲🕰️📅🗓️🤷🚶💼🎭🏘️🤞🤨✊🔔🌀⚡📷🔒📰📺📻🩸]+\s*/u,''); }
-
-// ── RENDER DE OPCIONES ──────────────────────────────────────
-function renderOpts(grupoId, campo, vals, esChk){
-  const c=document.getElementById(grupoId);
+// ── RENDER OPCIONES ──────────────────────────────────────────
+function rOpts(gId,campo,vals,chk){
+  const c=document.getElementById(gId);
   if(!c)return;
   c.innerHTML='';
   vals.forEach(v=>{
-    const lbl=document.createElement('div');
-    lbl.className='opt'+(esChk?' chk':'');
-    lbl.innerHTML=`<div class="ind"></div>${v}`;
-    lbl.addEventListener('click',function(){
-      if(esChk){
+    const d=document.createElement('div');
+    d.className='opt'+(chk?' chk':'');
+    d.innerHTML='<div class="ind"></div>'+v;
+    d.addEventListener('click',function(){
+      if(chk){
         this.classList.toggle('on');
-        // Actualizar D con todos los marcados
-        const todos=[...c.querySelectorAll('.opt.chk.on')].map(el=>limpio(el.textContent.trim()));
-        D[campo]=todos.join(';');
+        D[campo]=[...c.querySelectorAll('.opt.on')].map(el=>el.textContent.trim()).join(';');
       } else {
         c.querySelectorAll('.opt').forEach(o=>o.classList.remove('on'));
         this.classList.add('on');
-        D[campo]=limpio(this.textContent.trim());
+        D[campo]=v;
       }
     });
-    c.appendChild(lbl);
+    c.appendChild(d);
   });
 }
 
-// ── ESCALAS ────────────────────────────────────────────────
-function renderEsc(contId, campo, n){
-  const c=document.getElementById(contId);
+// ── RENDER ESCALA ────────────────────────────────────────────
+function rEsc(id,campo,n){
+  const c=document.getElementById(id);
   if(!c)return;
   c.innerHTML='';
   for(let i=1;i<=n;i++){
     const b=document.createElement('button');
-    b.type='button'; b.className='eb';
-    b.textContent=String(i);
-    b.dataset.campo=campo; b.dataset.val=String(i);
+    b.type='button';b.className='eb';b.textContent=i;
     b.addEventListener('click',function(){
       c.querySelectorAll('.eb').forEach(x=>x.classList.remove('on'));
       this.classList.add('on');
-      D[campo]=this.dataset.val;
+      D[campo]=String(i);
     });
     c.appendChild(b);
   }
 }
 
-// ── INIT ──────────────────────────────────────────────────
+// ── INIT ─────────────────────────────────────────────────────
 document.addEventListener('DOMContentLoaded',function(){
-  renderOpts('g-sexo','s26b_sexo',OPTS.sexo,false);
-  renderOpts('g-edu','s26d_nivel_educativo',OPTS.edu,false);
-  renderOpts('g-s1','s1_estado_inicial',OPTS.s1,false);
-  renderOpts('g-s2','s2_fue_victima',OPTS.s2,false);
-  renderOpts('g-s3','s3_atencion_esperada',OPTS.s3,false);
-  renderOpts('g-s4','s4_tipo_delito',OPTS.s4,true);
-  renderOpts('g-s45','s45_subtipo_ciberdelito',OPTS.s45,true);
-  renderOpts('g-s5b','s5b_denuncio',OPTS.s5b,false);
-  renderOpts('g-s6a','s6a_canal_denuncia',OPTS.s6a,false);
-  renderOpts('g-s6b','s6b_motivo_denuncia',OPTS.s6b,false);
-  renderOpts('g-s7a','s7a_calidad_atencion',OPTS.s7a,false);
-  renderOpts('g-s7b','s7b_situaciones_denuncia',OPTS.s7b,true);
-  renderOpts('g-s8','s8_intento_denuncia',OPTS.s8,false);
-  renderOpts('g-s9a','s9a_barrera_denuncia',OPTS.s9a,false);
-  renderOpts('g-s9b','s9b_trato_esperado',OPTS.s9b,false);
-  renderOpts('g-s10a','s10a_razon_no_intento',OPTS.s10a,false);
-  renderOpts('g-s10b','s10b_trato_esperado',OPTS.s10b,false);
-  renderOpts('g-s12','s12_causa_inseguridad',OPTS.s12,false);
-  renderOpts('g-s13b','s13b_vision_justicia',OPTS.s13b,false);
-  renderOpts('g-s15','s15_memoria_seguridad',OPTS.s15,false);
-  renderOpts('g-s16c','s16c_derecho_mas_limitado',OPTS.s16c,false);
-  renderOpts('g-s17','s17_participo_protesta',OPTS.s17,false);
-  renderOpts('g-s20a','s20a_sensaciones_corporales',OPTS.s20a,true);
-  renderOpts('g-s21','s21_medida_concreta',OPTS.s21,false);
-  renderOpts('g-s22','s22_origen_problema',OPTS.s22,false);
-  renderOpts('g-s23a','s23a_pesadillas',OPTS.s23a,false);
-  renderOpts('g-s23b','s23b_mano_dura',OPTS.s23b,false);
-  renderOpts('g-s25a','s25a_invirtio_seguridad',OPTS.s25a,false);
-  renderOpts('g-s25b','s25b_medidas_adoptadas',OPTS.s25b,true);
-  renderOpts('g-s25c','s25c_razon_no_inversion',OPTS.s25c,false);
-  renderOpts('g-s27a','s27a_fuente_info',OPTS.s27a,true);
-  renderOpts('g-s28','s28_partido',OPTS.s28,false);
-
-  renderEsc('es-s11a','s11a_conf_judicial',4);
-  renderEsc('es-s11b','s11b_conf_policia',4);
-  renderEsc('es-s11c','s11c_conf_municipal',4);
-  renderEsc('es-s13a','s13a_peligro_barrio',4);
-  renderEsc('es-s14a','s14a_peligro_transporte',4);
-  renderEsc('es-s14b','s14b_peligro_denuncia',4);
-  renderEsc('es-s16a','s16a_limit_movimiento',4);
-  renderEsc('es-s16b','s16b_limit_social',4);
-  renderEsc('es-s18a','s18a_trato_diferente',5);
-  renderEsc('es-s18b','s18b_restriccion_circulacion',5);
-  renderEsc('es-s18c','s18c_estigmatizacion',5);
-  renderEsc('es-s18d','s18d_represion',5);
-  renderEsc('es-s18e','s18e_seguridad_policial',5);
-  renderEsc('es-s19a','s19a_uso_fuerza',5);
-  renderEsc('es-s19b','s19b_prohibicion_marchas',5);
-  renderEsc('es-s19c','s19c_culpabilizacion',5);
-  renderEsc('es-s19d','s19d_dialogo_vs_represion',5);
-  renderEsc('es-s27b','s27b_interes_politico',5);
-  renderEsc('es-s29','s29_autoconciencia_sesgo',4);
+  rOpts('g-sexo','s26b_sexo',OPTS.sexo,false);
+  rOpts('g-edu','s26d_nivel_educativo',OPTS.edu,false);
+  rOpts('g-s1','s1_estado_inicial',OPTS.s1,false);
+  rOpts('g-s2','s2_fue_victima',OPTS.s2,false);
+  rOpts('g-s3','s3_atencion_esperada',OPTS.s3,false);
+  rOpts('g-s4','s4_tipo_delito',OPTS.s4,true);
+  rOpts('g-s45','s45_subtipo_ciberdelito',OPTS.s45,true);
+  rOpts('g-s5b','s5b_denuncio',OPTS.s5b,false);
+  rOpts('g-s6a','s6a_canal_denuncia',OPTS.s6a,false);
+  rOpts('g-s6b','s6b_motivo_denuncia',OPTS.s6b,false);
+  rOpts('g-s7a','s7a_calidad_atencion',OPTS.s7a,false);
+  rOpts('g-s7b','s7b_situaciones_denuncia',OPTS.s7b,true);
+  rOpts('g-s8','s8_intento_denuncia',OPTS.s8,false);
+  rOpts('g-s9a','s9a_barrera_denuncia',OPTS.s9a,false);
+  rOpts('g-s10a','s10a_razon_no_intento',OPTS.s10a,false);
+  rOpts('g-s10b','s10b_trato_esperado',OPTS.s10b,false);
+  rOpts('g-s12','s12_causa_inseguridad',OPTS.s12,false);
+  rOpts('g-s13b','s13b_vision_justicia',OPTS.s13b,false);
+  rOpts('g-s15','s15_memoria_seguridad',OPTS.s15,false);
+  rOpts('g-s16c','s16c_derecho_mas_limitado',OPTS.s16c,false);
+  rOpts('g-s17','s17_participo_protesta',OPTS.s17,false);
+  rOpts('g-s20a','s20a_sensaciones_corporales',OPTS.s20a,true);
+  rOpts('g-s21','s21_medida_concreta',OPTS.s21,false);
+  rOpts('g-s22','s22_origen_problema',OPTS.s22,false);
+  rOpts('g-s23a','s23a_pesadillas',OPTS.s23a,false);
+  rOpts('g-s23b','s23b_mano_dura',OPTS.s23b,false);
+  rOpts('g-s25a','s25a_invirtio_seguridad',OPTS.s25a,false);
+  rOpts('g-s25b','s25b_medidas_adoptadas',OPTS.s25b,true);
+  rOpts('g-s25c','s25c_razon_no_inversion',OPTS.s25c,false);
+  rOpts('g-s27a','s27a_fuente_info',OPTS.s27a,true);
+  rOpts('g-s28','s28_partido',OPTS.s28,false);
+  rEsc('es-s11a','s11a_conf_judicial',4);
+  rEsc('es-s11b','s11b_conf_policia',4);
+  rEsc('es-s11c','s11c_conf_municipal',4);
+  rEsc('es-s13a','s13a_peligro_barrio',4);
+  rEsc('es-s14a','s14a_peligro_transporte',4);
+  rEsc('es-s14b','s14b_peligro_denuncia',4);
+  rEsc('es-s16a','s16a_limit_movimiento',4);
+  rEsc('es-s16b','s16b_limit_social',4);
+  rEsc('es-s18a','s18a_trato_diferente',5);
+  rEsc('es-s18b','s18b_restriccion_circulacion',5);
+  rEsc('es-s18c','s18c_estigmatizacion',5);
+  rEsc('es-s18d','s18d_represion',5);
+  rEsc('es-s18e','s18e_seguridad_policial',5);
+  rEsc('es-s19a','s19a_uso_fuerza',5);
+  rEsc('es-s19b','s19b_prohibicion_marchas',5);
+  rEsc('es-s19c','s19c_culpabilizacion',5);
+  rEsc('es-s19d','s19d_dialogo_vs_represion',5);
+  rEsc('es-s27b','s27b_interes_politico',5);
+  rEsc('es-s29','s29_autoconciencia_sesgo',4);
 });
 
-// ── NAVEGACIÓN ─────────────────────────────────────────────
+// ── NAVEGACIÓN ───────────────────────────────────────────────
 function ir(dest){
   const el=Math.round((Date.now()-t0)/1000);
-  TT['tiempo_'+act.replace(/-/g,'')+'_seg']=(TT['tiempo_'+act.replace(/-/g,'')+'_seg']||0)+el;
+  TT['tiempo_'+act+'_seg']=(TT['tiempo_'+act+'_seg']||0)+el;
   document.getElementById('p-'+act).classList.remove('on');
   const nd=document.getElementById('p-'+dest);
   if(nd){nd.classList.add('on');window.scrollTo(0,0);}
   D.paso_abandono=dest;
-  act=dest; t0=Date.now();
+  act=dest;t0=Date.now();
   const n=PASOS[dest]||0;
   if(n===0){document.getElementById('pw').style.display='none';return;}
   document.getElementById('pw').style.display='block';
@@ -943,18 +898,21 @@ function ir(dest){
   document.getElementById('plbl').textContent='Paso '+n+' de '+TOTAL;
 }
 
-// ── VALIDACIÓN ─────────────────────────────────────────────
+// ── VALIDACIÓN ───────────────────────────────────────────────
 function req(campo,errId){
   if(!D[campo]){document.getElementById(errId).classList.add('v');return false;}
   document.getElementById(errId).classList.remove('v');return true;
 }
 function de_req(campo,errId,dest){if(req(campo,errId))ir(dest);}
 
-// ── CONSENTIMIENTO ─────────────────────────────────────────
+// ── CONSENTIMIENTO ───────────────────────────────────────────
 function consentir(si){
   D.consentimiento=si?'Sí':'No';
   if(!si){
-    fetch(WEB,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({consentimiento:'No',paso_abandono:'S0'})}).catch(()=>{});
+    // Enviar rechazo al servidor
+    fetch(WEB,{method:'POST',headers:{'Content-Type':'application/json'},
+      body:JSON.stringify({consentimiento:'No',paso_abandono:'S0',respuesta_completa:'FALSE'})})
+      .catch(()=>{});
     document.getElementById('p-s0').classList.remove('on');
     document.getElementById('p-no').classList.add('on');
     return;
@@ -962,7 +920,7 @@ function consentir(si){
   ir('s26a');
 }
 
-// ── SALTOS CON LÓGICA ──────────────────────────────────────
+// ── SALTOS CON LÓGICA ────────────────────────────────────────
 function de_s26a(){
   const edad=parseInt(document.getElementById('f-edad').value,10);
   let ok=true;
@@ -980,8 +938,6 @@ function de_s26b(){
   D.s26c_departamento=dept;
   ir('s1');
 }
-
-function de_s1(){if(req('s1_estado_inicial','e-s1'))ir('s2');}
 
 function de_s2(){
   if(!req('s2_fue_victima','e-s2'))return;
@@ -1005,22 +961,44 @@ function de_s5b(){
 
 function de_s8(){
   if(!req('s8_intento_denuncia','e-s8'))return;
-  ir(D.s8_intento_denuncia.includes('no pude')?'s9a':'s10a');
+  // "Intenté, pero no pude" → S9A (barreras) → S11
+  // "No lo intenté"         → S10A (razón) → S10B (expectativa) → S11
+  ir(D.s8_intento_denuncia==='Intenté, pero no pude'?'s9a':'s10a');
 }
 
 function atras_s11(){
   if(D.s2_fue_victima!=='Sí'){ir('s3');return;}
   if(D.s5b_denuncio==='Sí'){ir('s7b');return;}
-  if(D.s8_intento_denuncia&&D.s8_intento_denuncia.includes('no pude')){ir('s9b');return;}
+  if(D.s8_intento_denuncia==='Intenté, pero no pude'){ir('s9a');return;}
   ir('s10b');
 }
 
+// S11C No aplica: deshabilita escala municipal
+function togNA(){
+  const el=document.getElementById('opt-na');
+  const escMun=document.getElementById('es-s11c');
+  el.classList.toggle('on');
+  if(el.classList.contains('on')){
+    escMun.classList.add('esc-disabled');
+    escMun.querySelectorAll('.eb').forEach(b=>b.classList.remove('on'));
+    D.s11c_conf_municipal='No aplica';
+  } else {
+    escMun.classList.remove('esc-disabled');
+    D.s11c_conf_municipal='';
+  }
+}
+
+// S17: Sí → S18A → S18B → S20A
+//      No / Prefiero no responder → S19A → S19B → S20A
 function de_s17(){
   if(!req('s17_participo_protesta','e-s17'))return;
   ir(D.s17_participo_protesta==='Sí'?'s18a':'s19a');
 }
 
-function atras_s19(){ir(D.s17_participo_protesta==='Sí'?'s18b':'s17');}
+// S20A atrás: depende de S17
+function atras_s20a(){
+  ir(D.s17_participo_protesta==='Sí'?'s18b':'s19b');
+}
 
 function de_s25a(){
   if(!req('s25a_invirtio_seguridad','e-s25a'))return;
@@ -1029,51 +1007,53 @@ function de_s25a(){
 
 function atras_s27(){ir(D.s25a_invirtio_seguridad==='Sí'?'s25b':'s25c');}
 
-// ── NO APLICA MUNICIPAL ────────────────────────────────────
-function togNA(){
-  const el=document.getElementById('opt-s11na');
-  el.classList.toggle('on');
-  D.s11c_conf_municipal=el.classList.contains('on')?'No aplica':(D.s11c_conf_municipal==='No aplica'?'':D.s11c_conf_municipal);
-}
-
-// ── ENVÍO ──────────────────────────────────────────────────
+// ── ENVÍO ────────────────────────────────────────────────────
 async function enviar(){
-  // Campos de texto
-  ['f-s5a','f-s18f','f-s19e','f-s20b','f-s24'].forEach(id=>{
-    const map={
-      'f-s5a':'s5a_descripcion_hecho','f-s18f':'s18f_que_hubiera_respetado',
-      'f-s19e':'s19e_propuesta_estado','f-s20b':'s20b_olor_inseguridad',
-      'f-s24':'s24_grounding'
-    };
+  // Textos libres
+  const textos={
+    'f-s5a':'s5a_descripcion_hecho',
+    'f-s18f':'s18f_que_hubiera_respetado',
+    'f-s19e':'s19e_propuesta_estado',
+    'f-s20b':'s20b_olor_inseguridad',
+    'f-s24':'s24_grounding'
+  };
+  Object.entries(textos).forEach(([id,campo])=>{
     const el=document.getElementById(id);
-    if(el&&el.value)D[map[id]]=el.value;
+    if(el)D[campo]=el.value||'';
   });
-  // Timestamps
-  const el2=Math.round((Date.now()-t0)/1000);
-  TT['tiempo_s29_seg']=(TT['tiempo_s29_seg']||0)+el2;
+  // Timestamp final
+  const el=Math.round((Date.now()-t0)/1000);
+  TT['tiempo_s29_seg']=(TT['tiempo_s29_seg']||0)+el;
   TT.tiempo_total_seg=Object.values(TT).reduce((a,b)=>a+b,0);
 
-  const payload={...D,...TT,consentimiento:'Sí'};
+  const payload={...D,...TT,consentimiento:'Sí',respuesta_completa:'TRUE'};
   payload_r=payload;
 
   const btn=document.getElementById('btn-env');
   const lbl=document.getElementById('lbl-env');
   const sp=document.getElementById('spin');
-  btn.disabled=true; lbl.textContent='Enviando…'; sp.style.display='block';
+  btn.disabled=true;lbl.textContent='Enviando…';sp.style.display='block';
 
   try{
-    const res=await fetch(WEB,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(payload)});
+    const res=await fetch(WEB,{
+      method:'POST',
+      headers:{'Content-Type':'application/json'},
+      body:JSON.stringify(payload)
+    });
     const json=await res.json();
     document.getElementById('p-'+act).classList.remove('on');
     document.getElementById('pw').style.display='none';
-    if(json.status==='success'){document.getElementById('p-ok').classList.add('on');}
-    else throw new Error(json.message||'Error del servidor');
+    if(json.status==='success'){
+      document.getElementById('p-ok').classList.add('on');
+    } else {
+      throw new Error(json.message||'Error del servidor');
+    }
   }catch(err){
     document.getElementById('p-'+act).classList.remove('on');
     document.getElementById('pw').style.display='none';
     document.getElementById('txt-err').textContent='Error: '+err.message+'. Por favor intente nuevamente.';
     document.getElementById('p-err').classList.add('on');
-    btn.disabled=false; lbl.textContent='Enviar respuestas ✓'; sp.style.display='none';
+    btn.disabled=false;lbl.textContent='Enviar respuestas ✓';sp.style.display='none';
   }
 }
 
