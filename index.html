@@ -739,7 +739,7 @@ select.si{appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns=
 
 </div>
 <script>
-const WEB='https://script.google.com/macros/s/AKfycbzWb97G3OxMfoogL0u-aR1jbTbyCWEoxQUsiJ1RcHvBWkUQxrabQLepug9lq8nge4WO0A/exec';
+const WEB='https://script.google.com/macros/s/AKfycbxSR4FfTGWX_ojMFOlsczzmO5Qpy_yH4Or4goYZ0L9zpCM3m9Kx3TVy-ep2pzrNq4809A/exec';
 const TOTAL=34;
 const PASOS={s0:0,s26a:1,s26b:2,s1:3,s2:4,s3:5,s4:5,s45:6,s5a:7,s5b:8,
   s6a:9,s6b:10,s7a:11,s7b:12,s8:9,s9a:10,s10a:10,s10b:11,
@@ -910,9 +910,9 @@ function consentir(si){
   D.consentimiento=si?'Sí':'No';
   if(!si){
     // Enviar rechazo al servidor
-    fetch(WEB,{method:'POST',headers:{'Content-Type':'application/json'},
-      body:JSON.stringify({consentimiento:'No',paso_abandono:'S0',respuesta_completa:'FALSE'})})
-      .catch(()=>{});
+    const fdR=new FormData();
+    fdR.append('payload',JSON.stringify({consentimiento:'No',paso_abandono:'S0',respuesta_completa:'FALSE'}));
+    fetch(WEB,{method:'POST',body:fdR,mode:'no-cors'}).catch(()=>{});
     document.getElementById('p-s0').classList.remove('on');
     document.getElementById('p-no').classList.add('on');
     return;
@@ -1035,19 +1035,14 @@ async function enviar(){
   btn.disabled=true;lbl.textContent='Enviando…';sp.style.display='block';
 
   try{
-    const res=await fetch(WEB,{
-      method:'POST',
-      headers:{'Content-Type':'application/json'},
-      body:JSON.stringify(payload)
-    });
-    const json=await res.json();
+    // Google Apps Script requiere FormData (no JSON con Content-Type) para CORS
+    const fd=new FormData();
+    fd.append('payload',JSON.stringify(payload));
+    // mode:'no-cors' evita el preflight — GAS responderá opaque pero guardará los datos
+    await fetch(WEB,{method:'POST',body:fd,mode:'no-cors'});
     document.getElementById('p-'+act).classList.remove('on');
     document.getElementById('pw').style.display='none';
-    if(json.status==='success'){
-      document.getElementById('p-ok').classList.add('on');
-    } else {
-      throw new Error(json.message||'Error del servidor');
-    }
+    document.getElementById('p-ok').classList.add('on');
   }catch(err){
     document.getElementById('p-'+act).classList.remove('on');
     document.getElementById('pw').style.display='none';
