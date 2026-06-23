@@ -555,7 +555,7 @@ select.si{appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns=
 <!-- S20B OLFATO -->
 <div class="px" id="p-s20b">
   <div class="card">
-    <span class="ql">¿Hay algún lugar, sonido, olor o sensación que le transmita inseguridad? Descríbalo si quiere.<br><span class="qh">Opcional · máximo 150 caracteres</span></span>
+    <span class="ql">Si la inseguridad tuviera un olor, ¿cuál sería?<br><span class="qh">Opcional · máximo 150 caracteres</span></span>
     <input type="text" class="ti" id="f-s20b" maxlength="150" placeholder="Describa si quiere…">
   </div>
   <div class="btn-row">
@@ -747,6 +747,28 @@ const PASOS={s0:0,s26a:1,s26b:2,s1:3,s2:4,s3:5,s4:5,s45:6,s5a:7,s5b:8,
   s17:21,s18a:22,s18b:23,s19a:22,s19b:23,
   s20a:24,s20b:25,s21:26,s22:27,s23a:28,s23b:29,s24:30,
   s25a:31,s25b:32,s25c:32,s27a:33,s27b:34,s28:35,s29:36};
+
+// ── BLOQUEO DE RESPUESTAS DUPLICADAS ─────────────────────────────────────
+const LS_KEY='encuesta_seguridad_mendoza_2026_completada';
+(function verificarDuplicado(){
+  let yaCompleto=false;
+  try{yaCompleto=localStorage.getItem(LS_KEY)==='1';}catch(e){}
+  if(!yaCompleto)return;
+  document.addEventListener('DOMContentLoaded',function(){
+    document.querySelectorAll('.px,.hdr').forEach(function(el){el.style.display='none';});
+    var bloqueo=document.createElement('div');
+    bloqueo.style.cssText='position:fixed;inset:0;background:#F0F4F8;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:2rem;text-align:center;z-index:9999;font-family:Verdana,Arial,sans-serif';
+    bloqueo.innerHTML=
+      '<div style="background:#fff;border:1px solid #D5E8F3;border-radius:10px;padding:2.5rem 2rem;max-width:420px;width:100%;box-shadow:0 4px 16px rgba(0,0,0,.08)">'+
+      '<div style="font-size:3rem;margin-bottom:1rem">✅</div>'+
+      '<h1 style="font-size:1.2rem;color:#1A7A4A;margin-bottom:1rem;line-height:1.4">Ya participaste en esta encuesta</h1>'+
+      '<p style="font-size:.9rem;color:#4A6274;line-height:1.6;margin-bottom:.75rem">Registramos tu respuesta.<br>Tu participación ya fue contabilizada.</p>'+
+      '<p style="font-size:.9rem;color:#1A2B3C;line-height:1.6"><strong>Muchas gracias por contribuir a la<br>Encuesta de Percepción de Seguridad · Mendoza 2026</strong></p>'+
+      '</div>';
+    document.body.appendChild(bloqueo);
+  });
+})();
+// ── FIN BLOQUEO ───────────────────────────────────────────────────────────
 
 const D={};
 let act='s0',t0=Date.now(),TT={},payload_r=null;
@@ -1040,6 +1062,7 @@ async function enviar(){
     fd.append('payload',JSON.stringify(payload));
     // mode:'no-cors' evita el preflight — GAS responderá opaque pero guardará los datos
     await fetch(WEB,{method:'POST',body:fd,mode:'no-cors'});
+    try{localStorage.setItem(LS_KEY,'1');}catch(e){}
     document.getElementById('p-'+act).classList.remove('on');
     document.getElementById('pw').style.display='none';
     document.getElementById('p-ok').classList.add('on');
